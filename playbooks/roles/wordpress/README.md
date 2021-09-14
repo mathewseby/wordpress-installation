@@ -1,7 +1,7 @@
-Role Name
+Wordpress
 =========
 
-A brief description of the role goes here.
+Install and Lamp and wordpress
 
 Requirements
 ------------
