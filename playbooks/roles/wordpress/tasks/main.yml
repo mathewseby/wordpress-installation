@@ -1,0 +1,13 @@
+---
+- name: install wordpress
+  hosts: all
+  remote_user: centos
+  become: true
+  become_method: sudo
+ # tasks file for wordpress
+  tasks:
+   - import_tasks: lamp-install.yml
+   - import_tasks: mysql-setup.yml
+   - import_tasks: wordpress-install.yml
+  handlers:
+   - include_tasks: main.yml

@@ -1,0 +1,6 @@
+/.terraform/plugins/
+/terraform.tfstate
+/terraform.tfstate.backup
+/playbooks/roles/wordpress/.travis.yml
+/.terraform/
+/playbooks/roles/wordpress/tests/

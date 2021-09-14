@@ -1,0 +1,59 @@
+---
+- name: install httpd
+  package:
+    name: httpd
+    state: latest
+#- name: Download rpm for mysql 8
+#  package:
+#    name: https://repo.mysql.com/mysql80-community-release-el8-1.noarch.rpm
+#    state: present
+- name: install mysql
+  package:
+    name: mariadb-server
+    state: latest
+  #loop:
+  #   - mysql-community-server
+   #  - mysql-community-client
+- name: start and enable mysql
+  service:
+    name: mariadb
+    state: started
+    enabled: yes
+- name: install epel release repo for php
+  yum:
+    name: https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+    state: present
+  when: ansible_facts['distribution'] == "CentOS"
+- name: install remi repo for php
+  yum:
+    name: https://rpms.remirepo.net/enterprise/remi-release-7.rpm
+    state: present
+  when: ansible_facts['distribution'] == "CentOS"
+- name: install yum utils
+  yum:
+    name: yum-utils
+    state: present
+  when: ansible_facts['distribution'] == "CentOS"
+- name: enable remo repository
+  shell: yum-config-manager --enable remi-php74
+  when: ansible_facts['distribution'] == "CentOS"
+- name: yum clean all
+  shell: sudo yum clean all
+  when: ansible_facts['os_family'] == "CentOS"
+- name: Install php in amazon linux
+  command: amazon-linux-extras install php7.4 -y
+  when: ansible_facts['distribution'] == "Amazon"
+- name: install php packages
+  yum:
+    name: "{{ item }}"
+    state: present
+  loop:
+     - php
+     - php-cli
+     - php-mysqlnd
+     - php-gd
+- name: start and enable httpd
+  service:
+    name: httpd
+    state: started
+    enabled: yes
