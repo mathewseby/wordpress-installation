@@ -1,28 +1,31 @@
-resource "aws_instance" "test-instance" {
-  ami = "ami-06cf02a98a61f9f5e"
+resource "aws_instance" "wp-instance" {
+  ami = var.instance-ami
   subnet_id = aws_subnet.ec2-01.id
   vpc_security_group_ids = [
     "${aws_security_group.ec2_sg.id}"
   ]
-  instance_type = "t2.micro"
-  key_name = "test-instance-key"
+  instance_type = var.instance-type
+  key_name = var.instance_key_name
+  root_block_device {
+    volume_type = "gp3"
+  }
 
   provisioner "remote-exec" {
     inline = ["echo Wait until SSH is ready"]
 
     connection {
       type = "ssh"
-      user = "centos"
+      user = var.ssh-user
       private_key = file(local.private_key_path)
-      host = "${aws_instance.test-instance.public_ip}"
+      host = "${aws_instance.wp-instance.public_ip}"
     }
 
   }
   provisioner "local-exec" {
-    command = "ansible-playbook -i ${aws_instance.test-instance.public_ip}, --private-key ${local.private_key_path} playbooks/roles/wordpress/tasks/main.yml"
+    command = "ansible-playbook -i ${aws_instance.wp-instance.public_ip}, --private-key ${local.private_key_path} playbooks/install-wordpress.yml"
   }
 }
 
 output "ec2_public-ip" {
-  value = "${aws_instance.test-instance.public_ip}"
+  value = "${aws_instance.wp-instance.public_ip}"
 }

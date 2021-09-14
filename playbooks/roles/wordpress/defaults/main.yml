@@ -1,5 +1,7 @@
 ---
 # defaults file for wordpress
 mysql_root_password: 12345678
-mysql_python_package: MySQL-python
-mysql_user_password: 12345678
+wordpress_user_password: 12345678
+dbhost: localhost
+dbuser: wp-user
+wpdb: wordpress

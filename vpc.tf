@@ -11,13 +11,6 @@ resource "aws_subnet" "ec2-01" {
  map_public_ip_on_launch = true
 }
 
-resource "aws_subnet" "ec2-02" {
- cidr_block = "172.20.2.0/24"
- vpc_id = aws_vpc.vpc.id
- map_public_ip_on_launch = true
-
-}
-
 resource "aws_internet_gateway" "igw" {
  vpc_id = aws_vpc.vpc.id
 }

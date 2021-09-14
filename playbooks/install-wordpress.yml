@@ -1,0 +1,8 @@
+---
+- name: install wordpress
+  hosts: all
+  remote_user: centos
+  become: true
+  become_method: sudo
+  roles:
+    - wordpress

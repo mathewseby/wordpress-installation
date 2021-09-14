@@ -3,17 +3,10 @@
   package:
     name: httpd
     state: latest
-#- name: Download rpm for mysql 8
-#  package:
-#    name: https://repo.mysql.com/mysql80-community-release-el8-1.noarch.rpm
-#    state: present
 - name: install mysql
   package:
     name: mariadb-server
     state: latest
-  #loop:
-  #   - mysql-community-server
-   #  - mysql-community-client
 - name: start and enable mysql
   service:
     name: mariadb

@@ -4,3 +4,4 @@
 /playbooks/roles/wordpress/.travis.yml
 /.terraform/
 /playbooks/roles/wordpress/tests/
+/.terraform.tfstate.lock.info

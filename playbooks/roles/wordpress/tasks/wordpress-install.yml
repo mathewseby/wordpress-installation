@@ -25,16 +25,16 @@
     dest: /var/www/html/wp-config.php
     remote_src: yes
 - name: Change database wordpress database name in wp-config
-  shell: sed -i 's/database_name_here/wordpress/g' wp-config.php
+  shell: sed -i 's/database_name_here/{{ wpdb }}/g' wp-config.php
   args:
     chdir: /var/www/html/
 
 - name: Change database username in wp-config
-  shell: sed -i 's/username_here/wp-user/g' wp-config.php
+  shell: sed -i 's/username_here/{{ dbuser }}/g' wp-config.php
   args:
     chdir: /var/www/html/
 
 - name: Change database password in wp-config
-  shell: sed -i 's/password_here/12345678/g' wp-config.php
+  shell: sed -i 's/password_here/{{ wordpress_user_password }}/g' wp-config.php
   args:
     chdir: /var/www/html/

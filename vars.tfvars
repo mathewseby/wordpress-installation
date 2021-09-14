@@ -1,3 +1,5 @@
-instance_key_name = "pem file name"
-ssh-user = "ec2 instance username"
-private_key_path = "instance pem key file path"
+instance_key_name = "test-instance-key"
+ssh-user = "centos"
+private_key_path = "~/Downloads/test-instance-key.pem"
+instance-type = "t2.micro"
+instance-ami = "ami-06cf02a98a61f9f5e"
