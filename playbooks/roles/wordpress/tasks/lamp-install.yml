@@ -1,28 +1,28 @@
 ---
-- name: install httpd
+- name: Install httpd
   package:
     name: httpd
     state: latest
-- name: install mysql
+- name: Install mysql
   package:
     name: mariadb-server
     state: latest
-- name: start and enable mysql
+- name: Start and enable mysql
   service:
     name: mariadb
     state: started
     enabled: yes
-- name: install epel release repo for php
+- name: Install epel release repo for php
   yum:
     name: https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
     state: present
   when: ansible_facts['distribution'] == "CentOS"
-- name: install remi repo for php
+- name: Install remi repo for php
   yum:
     name: https://rpms.remirepo.net/enterprise/remi-release-7.rpm
     state: present
   when: ansible_facts['distribution'] == "CentOS"
-- name: install yum utils
+- name: Install yum utils
   yum:
     name: yum-utils
     state: present
@@ -36,7 +36,7 @@
 - name: Install php in amazon linux
   command: amazon-linux-extras install php7.4 -y
   when: ansible_facts['distribution'] == "Amazon"
-- name: install php packages
+- name: Install php packages
   yum:
     name: "{{ item }}"
     state: present
@@ -45,7 +45,7 @@
      - php-cli
      - php-mysqlnd
      - php-gd
-- name: start and enable httpd
+- name: Start and enable httpd
   service:
     name: httpd
     state: started
