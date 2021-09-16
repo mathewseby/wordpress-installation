@@ -12,10 +12,12 @@ mysql setup and wordpress configurations.
 ``
 git clone https://github.com/mathewseby/wordpress.git
 ``
-2. Update [vars.tfvars](./vars.tfvars) with neccessary data
 
-3. Update ansible roles variable (sample variable values are added in [defaults](./playbooks/roles/wordpress/defaults/main.yml) file in wordpress roles folder)
-4. Configure aws cli, use access key and secret key 
+2.Update [vars.tfvars](./vars.tfvars) with neccessary data
+
+3.Update ansible roles variable (sample variable values are added in [defaults](./playbooks/roles/wordpress/defaults/main.yml) file in wordpress roles folder)
+
+4.Configure aws cli, use access key and secret key 
 ```
 aws configure
 ```
