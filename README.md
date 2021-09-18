@@ -1,4 +1,4 @@
-# Create AWS Instance and provision Wordpress using Ansible
+# Create AWS Instance with Terraform and provision Wordpress using Ansible
 
 This is a simple project which creates AWS infrastructure (VPC, subnets, ec2 instance, security group) using terraform 
 and provision wordpress in the instance using ansible, after running `terraform apply` you can directly access the installation page of
