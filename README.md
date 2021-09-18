@@ -41,7 +41,7 @@ region = "<aws region to create resources>"
 
 ```console
 mysql_root_password: <root password>
-wordpress_user_password: <wordpress user password>
+wordpress_user_password: <wordpress database user password>
 dbhost: <database host>
 dbuser: <wordpress database user>
 wpdb: <wordpress database name>
