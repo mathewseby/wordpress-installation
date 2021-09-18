@@ -5,29 +5,53 @@ and provision wordpress in the instance using ansible, after running `terraform 
 wordpress from web browser. The ansible role will be run directly after infrastructure creation by terraform, the ansible will do the lamp installation, 
 mysql setup and wordpress configurations.
 
+Note: 
+* Database used for the wordpress is mariadb in this setup.
+* Ansible role supports both centos and amazon-linux 2
+
 ## How to run
 
 ### Prerequisites
 
 * terraform
 * Ansible
+* Disable strict host key checking in ansible config (change `host_key_checking = False` in ansible.cfg)
 * Create and download ssh key from AWS
 
-1. Clone the git repository
+### Steps to Run
+
+* Clone the git repository
 
 ```console
 git clone https://github.com/mathewseby/wordpress.git
 ```
 
-2. Update [vars.tfvars](./vars.tfvars) with neccessary data
+* Update [vars.tfvars](./vars.tfvars) with neccessary data
 
-3. Update ansible roles variable (sample variable values are added in [defaults](./playbooks/roles/wordpress/defaults/main.yml)) file in wordpress roles folder)
-
-4. Configure aws cli, use access key and secret key
+```console
+instance_key_name = "<ec2-instance-key-name>"
+ssh-user = "<centos>"
+private_key_path = "<ec2-instance-key path>"
+instance-type = "<instance-type>"
+instance-ami = "<ami id of the instance>"
+region = "<aws region to create resources>"
 ```
+
+* Update ansible roles variable (sample variable values are added in [defaults](./playbooks/roles/wordpress/defaults/main.yml)) in wordpress roles folder)
+
+```console
+mysql_root_password: <root password>
+wordpress_user_password: <wordpress user password>
+dbhost: <database host>
+dbuser: <wordpress database user>
+wpdb: <wordpress database name>
+```
+* Configure aws cli, use access key and secret key
+
+```console
 aws configure
 ```
-5. Run terraform
+* Run terraform
 
 ```
 terraform init
