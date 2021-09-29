@@ -1,7 +1,101 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3270e155-b475-4ffa-a600-fee1a6d08359" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vars.tfvars" beforeDir="false" afterPath="$PROJECT_DIR$/vars.tfvars" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1yp1ku9KOjK5AuWrAbtmdLPUfOx" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$USER_HOME$/Scalar/18-9-2020" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="TF_FMT" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="MTHome" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3270e155-b475-4ffa-a600-fee1a6d08359" name="Default Changelist" comment="" />
+      <created>1632933861940</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1632933861940</updated>
+    </task>
+    <task id="LOCAL-00001" summary="format correction">
+      <created>1632933937562</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1632933937562</updated>
+    </task>
+    <task id="LOCAL-00002" summary="workflow file change">
+      <created>1632934026597</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1632934026597</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="format correction" />
+    <MESSAGE value="workflow file change" />
+    <option name="LAST_COMMIT_MESSAGE" value="workflow file change" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="535" y="34" width="912" height="1045" key="CommitChangelistDialog2" timestamp="1632934026545">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="535" y="34" width="912" height="1045" key="CommitChangelistDialog2/72.27.1848.1053@72.27.1848.1053" timestamp="1632934026545" />
+    <state x="252" y="117" width="1478" height="879" key="MergeDialog" timestamp="1632934261015">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="252" y="117" width="1478" height="879" key="MergeDialog/72.27.1848.1053@72.27.1848.1053" timestamp="1632934261015" />
+    <state x="793" y="193" width="395" height="727" key="RollbackChangesDialog" timestamp="1632934284378">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="793" y="193" width="395" height="727" key="RollbackChangesDialog/72.27.1848.1053@72.27.1848.1053" timestamp="1632934284378" />
   </component>
 </project>
