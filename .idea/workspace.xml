@@ -20,13 +20,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3270e155-b475-4ffa-a600-fee1a6d08359" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/terraform.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/terraform.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vars.tfvars" beforeDir="false" afterPath="$PROJECT_DIR$/vars.tfvars" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ec2.tf" beforeDir="false" afterPath="$PROJECT_DIR$/ec2.tf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Rebase.Settings">
+    <option name="NEW_BASE" value="main" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -65,7 +69,56 @@
       <option name="project" value="LOCAL" />
       <updated>1632934026597</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="workflow file changes">
+      <created>1632934649140</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1632934649140</updated>
+    </task>
+    <task id="LOCAL-00004" summary="workflow file changes">
+      <created>1632934849871</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1632934849871</updated>
+    </task>
+    <task id="LOCAL-00005" summary="workflow file update">
+      <created>1632982163025</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1632982163025</updated>
+    </task>
+    <task id="LOCAL-00006" summary="workflow file update">
+      <created>1632982255334</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1632982255334</updated>
+    </task>
+    <task id="LOCAL-00007" summary="workflow file update">
+      <created>1632982395329</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1632982395329</updated>
+    </task>
+    <task id="LOCAL-00008" summary="workflow file update">
+      <created>1632982530331</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1632982530331</updated>
+    </task>
+    <task id="LOCAL-00009" summary="workflow file update">
+      <created>1632983250343</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1632983250343</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -78,17 +131,20 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="format correction" />
     <MESSAGE value="workflow file change" />
-    <option name="LAST_COMMIT_MESSAGE" value="workflow file change" />
+    <MESSAGE value="workflow file changes" />
+    <MESSAGE value="workflow file update" />
+    <option name="LAST_COMMIT_MESSAGE" value="workflow file update" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="535" y="34" width="912" height="1045" key="CommitChangelistDialog2" timestamp="1632934026545">
+    <state x="535" y="34" width="912" height="1045" key="CommitChangelistDialog2" timestamp="1632983250277">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state x="535" y="34" width="912" height="1045" key="CommitChangelistDialog2/72.27.1848.1053@72.27.1848.1053" timestamp="1632934026545" />
+    <state x="535" y="34" width="912" height="1045" key="CommitChangelistDialog2/72.27.1848.1053@72.27.1848.1053" timestamp="1632983250277" />
     <state x="252" y="117" width="1478" height="879" key="MergeDialog" timestamp="1632934261015">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>

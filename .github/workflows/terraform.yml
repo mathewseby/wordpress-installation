@@ -2,8 +2,8 @@ name: 'Terraform'
 
 on:
   push:
-    branches:
-    - 'wordpress/add-mysl-8-support'
+    branches-ignore:
+      - main
   workflow_dispatch:
 
 jobs:
@@ -34,6 +34,10 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY }}
         aws-region: ap-south-1
 
+    - name: add ssh-key
+      uses: webfactory/ssh-agent@v0.5.3
+      with:
+        ssh-private-key: ${{ secrets.SSH_KEY }}
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
       run: terraform init
