@@ -22,13 +22,12 @@ resource "aws_instance" "wp-instance" {
 
   }
   provisioner "local-exec" {
-    command = "ansible-playbook -i ${aws_instance.wp-instance.public_ip}, -u ${var.ssh-user} playbooks/install-wordpress.yml"
+    inline = [
+      "ansible-playbook -i ${aws_instance.wp-instance.public_ip}, -u ${var.ssh-user} playbooks/install-wordpress.yml",
+      "curl ${aws_instance.wp-instance.public_ip}"
+    ]
   }
 }
-provisioner "local-exec" {
-  command = "curl ${aws_instance.wp-instance.public_ip}"
-}
-
 
 output "ec2_public-ip" {
   value = aws_instance.wp-instance.public_ip
