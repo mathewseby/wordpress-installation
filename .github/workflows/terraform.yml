@@ -58,6 +58,11 @@ jobs:
       #if: github.ref == 'refs/heads/main' && github.event_name == 'push'
       run: terraform apply -auto-approve --var-file vars.tfvars
 
+    # Wait before destroy
+    - name: Sleep for 30 seconds
+      uses: jakejarvis/wait-action@master
+      with:
+        time: '30s'
     # Add terraform destroy
-    - name: Terraform destroy
+    - name: Terraform Destroy
       run: terraform destroy -auto-approve --var-file vars.tfvars
