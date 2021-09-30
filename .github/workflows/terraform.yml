@@ -63,6 +63,6 @@ jobs:
       uses: jakejarvis/wait-action@master
       with:
         time: '30s'
-    # Add terraform destroy
+    # terraform destroy
     - name: Terraform Destroy
       run: terraform destroy -auto-approve --var-file vars.tfvars
