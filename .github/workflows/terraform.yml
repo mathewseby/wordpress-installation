@@ -3,7 +3,7 @@ name: 'Terraform'
 on:
   push:
     branches:
-    - add-mysl-8-support
+    - 'wordpress/add-mysl-8-support'
   workflow_dispatch:
 
 jobs:
