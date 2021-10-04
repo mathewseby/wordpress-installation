@@ -8,7 +8,8 @@
   yum:
     name: "{{ item }}"
     enablerepo: mysql80-community
-     loop:
+    state: present
+    loop:
        - mysql-community-server
        - mysql-community-client
 - name: Start and enable mysql

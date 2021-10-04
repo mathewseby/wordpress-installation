@@ -20,8 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3270e155-b475-4ffa-a600-fee1a6d08359" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/playbooks/roles/wordpress/tasks/mysql8-install.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/playbooks/roles/wordpress/tasks/mysql8-install.yml" beforeDir="false" afterPath="$PROJECT_DIR$/playbooks/roles/wordpress/tasks/mysql8-install.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -201,7 +200,14 @@
       <option name="project" value="LOCAL" />
       <updated>1633360755289</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="test mysql-8 install">
+      <created>1633363161851</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1633363161851</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -228,13 +234,14 @@
     <MESSAGE value="add sleep before destroy" />
     <MESSAGE value="workflow file correction" />
     <MESSAGE value="disable destroy temporarily" />
-    <option name="LAST_COMMIT_MESSAGE" value="disable destroy temporarily" />
+    <MESSAGE value="test mysql-8 install" />
+    <option name="LAST_COMMIT_MESSAGE" value="test mysql-8 install" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="535" y="34" width="912" height="1045" key="CommitChangelistDialog2" timestamp="1633360755166">
+    <state x="535" y="34" width="912" height="1045" key="CommitChangelistDialog2" timestamp="1633363161798">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state x="535" y="34" width="912" height="1045" key="CommitChangelistDialog2/72.27.1848.1053@72.27.1848.1053" timestamp="1633360755166" />
+    <state x="535" y="34" width="912" height="1045" key="CommitChangelistDialog2/72.27.1848.1053@72.27.1848.1053" timestamp="1633363161798" />
     <state x="252" y="117" width="1478" height="879" key="MergeDialog" timestamp="1632934261015">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
