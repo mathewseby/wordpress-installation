@@ -1,0 +1,21 @@
+- name: Install epel release repo for php
+  yum:
+    name: https://repo.mysql.com/mysql80-community-release-el7-3.noarch.rpm
+    state: present
+- name: Disable other mysql repo entries
+  shell: sed -i 's/enabled=1/enabled=0/' /etc/yum.repos.d/mysql-community.repo
+- name: Install MYSQL 8 community client and server
+  yum:
+    name: "{{ item }}"
+    enablerepo: mysql80-community
+     loop:
+       - mysql-community-server
+       - mysql-community-client
+- name: Start and enable mysql
+  service:
+    name: mysql
+    state: restarted
+    enabled: yes
+
+
+

@@ -20,7 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3270e155-b475-4ffa-a600-fee1a6d08359" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/terraform.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/terraform.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/playbooks/roles/wordpress/tasks/mysql8-install.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -166,7 +166,42 @@
       <option name="project" value="LOCAL" />
       <updated>1633027870763</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="workflow modification">
+      <created>1633028421699</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1633028421699</updated>
+    </task>
+    <task id="LOCAL-00018" summary="workflow modification">
+      <created>1633028517300</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1633028517300</updated>
+    </task>
+    <task id="LOCAL-00019" summary="add sleep before destroy">
+      <created>1633028988379</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1633028988379</updated>
+    </task>
+    <task id="LOCAL-00020" summary="workflow file correction">
+      <created>1633029547479</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1633029547479</updated>
+    </task>
+    <task id="LOCAL-00021" summary="disable destroy temporarily">
+      <created>1633360755289</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1633360755289</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -189,13 +224,17 @@
     <MESSAGE value="fix for workflow" />
     <MESSAGE value="correct format" />
     <MESSAGE value="add curl commmand in provisioning" />
-    <option name="LAST_COMMIT_MESSAGE" value="add curl commmand in provisioning" />
+    <MESSAGE value="workflow modification" />
+    <MESSAGE value="add sleep before destroy" />
+    <MESSAGE value="workflow file correction" />
+    <MESSAGE value="disable destroy temporarily" />
+    <option name="LAST_COMMIT_MESSAGE" value="disable destroy temporarily" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="535" y="34" width="912" height="1045" key="CommitChangelistDialog2" timestamp="1633027870693">
+    <state x="535" y="34" width="912" height="1045" key="CommitChangelistDialog2" timestamp="1633360755166">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state x="535" y="34" width="912" height="1045" key="CommitChangelistDialog2/72.27.1848.1053@72.27.1848.1053" timestamp="1633027870693" />
+    <state x="535" y="34" width="912" height="1045" key="CommitChangelistDialog2/72.27.1848.1053@72.27.1848.1053" timestamp="1633360755166" />
     <state x="252" y="117" width="1478" height="879" key="MergeDialog" timestamp="1632934261015">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
