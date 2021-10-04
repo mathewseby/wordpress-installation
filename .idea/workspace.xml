@@ -19,9 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3270e155-b475-4ffa-a600-fee1a6d08359" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/terraform.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/terraform.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="3270e155-b475-4ffa-a600-fee1a6d08359" name="Default Changelist" comment="test mysql-8 install">
+      <change beforePath="$PROJECT_DIR$/playbooks/roles/wordpress/tasks/mysql8-install.yml" beforeDir="false" afterPath="$PROJECT_DIR$/playbooks/roles/wordpress/tasks/mysql8-install.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -236,7 +235,14 @@
       <option name="project" value="LOCAL" />
       <updated>1633365525675</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="test mysql-8 install">
+      <created>1633365896471</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1633365896471</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -263,15 +269,15 @@
     <MESSAGE value="add sleep before destroy" />
     <MESSAGE value="workflow file correction" />
     <MESSAGE value="disable destroy temporarily" />
-    <MESSAGE value="test mysql-8 install" />
     <MESSAGE value="test mysql-8 install, mysql service correction" />
-    <option name="LAST_COMMIT_MESSAGE" value="test mysql-8 install, mysql service correction" />
+    <MESSAGE value="test mysql-8 install" />
+    <option name="LAST_COMMIT_MESSAGE" value="test mysql-8 install" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="535" y="34" width="912" height="1045" key="CommitChangelistDialog2" timestamp="1633365525608">
+    <state x="535" y="34" width="912" height="1045" key="CommitChangelistDialog2" timestamp="1633365920441">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state x="535" y="34" width="912" height="1045" key="CommitChangelistDialog2/72.27.1848.1053@72.27.1848.1053" timestamp="1633365525608" />
+    <state x="535" y="34" width="912" height="1045" key="CommitChangelistDialog2/72.27.1848.1053@72.27.1848.1053" timestamp="1633365920441" />
     <state x="779" y="311" width="424" height="491" key="FileChooserDialogImpl" timestamp="1633364493618">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
@@ -288,9 +294,9 @@
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
     <state x="485" y="188" width="1022" height="737" key="SettingsEditor/72.27.1848.1053@72.27.1848.1053" timestamp="1633364807955" />
-    <state x="591" y="285" width="800" height="543" key="Vcs.Push.Dialog.v2" timestamp="1633365871315">
+    <state x="591" y="285" width="800" height="543" key="Vcs.Push.Dialog.v2" timestamp="1633365923318">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state x="591" y="285" width="800" height="543" key="Vcs.Push.Dialog.v2/72.27.1848.1053@72.27.1848.1053" timestamp="1633365871315" />
+    <state x="591" y="285" width="800" height="543" key="Vcs.Push.Dialog.v2/72.27.1848.1053@72.27.1848.1053" timestamp="1633365923318" />
   </component>
 </project>

@@ -17,6 +17,30 @@
    name: mysqld
    state: restarted
    enabled: yes
-
+- name: Install mysqld python libary for Ansible
+  package:
+    name: MySQL-python
+    state: present
+- name: Set mysql root password
+  mysql_user:
+    name: 'root'
+    host_all: true
+    password: "{{ mysql_root_password }}"
+    state: present
+- name: Create wordpress database
+  mysql_db:
+    name: "{{ wpdb }}"
+    state: present
+    login_user: root
+    login_password: "{{ mysql_root_password }}"
+- name: Create wordpress user
+  mysql_user:
+    name: "{{ dbuser }}"
+    host: "{{ dbhost }}"
+    priv: 'wordpress.*:ALL'
+    password: "{{ wordpress_user_password }}"
+    state: present
+    login_user: root
+    login_password: "{{ mysql_root_password }}"
 
 
