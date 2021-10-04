@@ -9,10 +9,10 @@
     name: "{{ item }}"
     enablerepo: mysql80-community
     state: present
-    loop:
-       - mysql-community-server
-       - mysql-community-client
-- name: Start and enable mysql
+  loop:
+     - mysql-community-server
+     - mysql-community-client
+ - name: Start and enable mysql
   service:
     name: mysql
     state: restarted
