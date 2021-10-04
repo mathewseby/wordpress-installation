@@ -22,7 +22,6 @@
     <list default="true" id="3270e155-b475-4ffa-a600-fee1a6d08359" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.github/workflows/terraform.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/terraform.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/playbooks/roles/wordpress/tasks/mysql8-install.yml" beforeDir="false" afterPath="$PROJECT_DIR$/playbooks/roles/wordpress/tasks/mysql8-install.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +43,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="TF_FMT" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="MTHome" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -216,7 +215,28 @@
       <option name="project" value="LOCAL" />
       <updated>1633363609034</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="test mysql-8 install">
+      <created>1633364213931</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1633364213931</updated>
+    </task>
+    <task id="LOCAL-00025" summary="test mysql-8 install">
+      <created>1633364848711</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1633364848712</updated>
+    </task>
+    <task id="LOCAL-00026" summary="test mysql-8 install, mysql service correction">
+      <created>1633365525675</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1633365525675</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -244,13 +264,18 @@
     <MESSAGE value="workflow file correction" />
     <MESSAGE value="disable destroy temporarily" />
     <MESSAGE value="test mysql-8 install" />
-    <option name="LAST_COMMIT_MESSAGE" value="test mysql-8 install" />
+    <MESSAGE value="test mysql-8 install, mysql service correction" />
+    <option name="LAST_COMMIT_MESSAGE" value="test mysql-8 install, mysql service correction" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="535" y="34" width="912" height="1045" key="CommitChangelistDialog2" timestamp="1633363608982">
+    <state x="535" y="34" width="912" height="1045" key="CommitChangelistDialog2" timestamp="1633365525608">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state x="535" y="34" width="912" height="1045" key="CommitChangelistDialog2/72.27.1848.1053@72.27.1848.1053" timestamp="1633363608982" />
+    <state x="535" y="34" width="912" height="1045" key="CommitChangelistDialog2/72.27.1848.1053@72.27.1848.1053" timestamp="1633365525608" />
+    <state x="779" y="311" width="424" height="491" key="FileChooserDialogImpl" timestamp="1633364493618">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="779" y="311" width="424" height="491" key="FileChooserDialogImpl/72.27.1848.1053@72.27.1848.1053" timestamp="1633364493618" />
     <state x="252" y="117" width="1478" height="879" key="MergeDialog" timestamp="1632934261015">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
@@ -259,5 +284,13 @@
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
     <state x="793" y="193" width="395" height="727" key="RollbackChangesDialog/72.27.1848.1053@72.27.1848.1053" timestamp="1632934284378" />
+    <state x="485" y="188" width="1022" height="737" key="SettingsEditor" timestamp="1633364807955">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="485" y="188" width="1022" height="737" key="SettingsEditor/72.27.1848.1053@72.27.1848.1053" timestamp="1633364807955" />
+    <state x="591" y="285" width="800" height="543" key="Vcs.Push.Dialog.v2" timestamp="1633365871315">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="591" y="285" width="800" height="543" key="Vcs.Push.Dialog.v2/72.27.1848.1053@72.27.1848.1053" timestamp="1633365871315" />
   </component>
 </project>
