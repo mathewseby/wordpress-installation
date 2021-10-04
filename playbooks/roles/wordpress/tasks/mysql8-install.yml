@@ -12,11 +12,11 @@
   loop:
      - mysql-community-server
      - mysql-community-client
- - name: Start and enable mysql
+- name: Start and enable mysql
   service:
-    name: mysql
-    state: restarted
-    enabled: yes
+   name: mysql
+   state: restarted
+   enabled: yes
 
 
 
