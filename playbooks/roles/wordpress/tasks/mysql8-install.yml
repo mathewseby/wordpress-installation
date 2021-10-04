@@ -14,7 +14,7 @@
      - mysql-community-client
 - name: Start and enable mysql
   service:
-   name: mysql
+   name: mysqld
    state: restarted
    enabled: yes
 
