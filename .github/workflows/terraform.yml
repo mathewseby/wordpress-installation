@@ -1,7 +1,10 @@
 name: 'Terraform'
 
 on:
- workflow_dispatch:
+  push:
+    branches-ignore:
+      - main
+    workflow_dispatch:
 
 jobs:
   terraform:
