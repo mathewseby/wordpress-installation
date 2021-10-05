@@ -21,10 +21,15 @@
   package:
     name: MySQL-python
     state: present
+#- name: Grep temporary root password
+ # shell: grep "A temporary password" /var/log/mysqld.log | grep awk {print $12}
+
 - name: Set mysql root password
   mysql_user:
     name: 'root'
     host_all: true
+    login_user: root
+    login_password:
     password: "{{ mysql_root_password }}"
     state: present
 - name: Create wordpress database
