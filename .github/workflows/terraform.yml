@@ -46,15 +46,13 @@ name: 'Terraform'
 
 on:
   push:
-    branches:
-    - add-mysl-8-support
-  pull_request:
-  workflow_dispatch:
+    branches-ignore:
+    workflow_dispatch:
 
 jobs:
   terraform:
     name: 'Terraform'
-    runs-on: ubuntu-latest 
+    runs-on: ubuntu-latest
 
     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
     defaults:
@@ -72,6 +70,19 @@ jobs:
       with:
         cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
+    # Add aws account credentials
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY }}
+        aws-region: ap-south-1
+
+    # Add ssh key
+    - name: add ssh-key
+      uses: webfactory/ssh-agent@v0.5.3
+      with:
+        ssh-private-key: ${{ secrets.SSH_KEY }}
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
       run: terraform init
@@ -82,10 +93,20 @@ jobs:
 
     # Generates an execution plan for Terraform
     - name: Terraform Plan
-      run: terraform plan
+      run: terraform plan --var-file vars.tfvars
 
       # On push to main, build or change infrastructure according to Terraform configuration files
       # Note: It is recommended to set up a required "strict" status check in your repository for "Terraform Cloud". See the documentation on "strict" required status checks for more information: https://help.github.com/en/github/administering-a-repository/types-of-required-status-checks
     - name: Terraform Apply
-      if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-      run: terraform apply -auto-approve
+      #if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+      run: terraform apply -auto-approve --var-file vars.tfvars
+
+    # Wait before destroy
+   # - name: Sleep for 30 seconds
+    #  uses: jakejarvis/wait-action@master
+    #  with:
+     #   time: '30s'
+    # terraform destroy
+    - name: Terraform Destroy
+      if: always()
+      run: terraform destroy -auto-approve --var-file vars.tfvars
