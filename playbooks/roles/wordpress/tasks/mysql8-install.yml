@@ -40,7 +40,7 @@
     login_user: root
     login_password: temp_pass.stdout_lines
     password: "{{ mysql_root_password }}"
-    state: present
+    update_password: always
 - name: Create wordpress database
   mysql_db:
     name: "{{ wpdb }}"
