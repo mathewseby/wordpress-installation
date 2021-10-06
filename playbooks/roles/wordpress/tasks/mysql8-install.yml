@@ -22,8 +22,8 @@
     name: MySQL-python
     state: present
 - name: Install or update pip
-  community.general.easy_install:
-    name: pip
+  yum:
+    name: python-pip
     state: present
 - pip:
     name: mysql-connector-python
