@@ -42,6 +42,7 @@
 #    password: "{{ mysql_root_password }}"
 #    update_password: always
 - name: Create wordpress database
+  become: false
   mysql_db:
     name: "{{ wpdb }}"
     state: present
