@@ -44,7 +44,7 @@
     name: "{{ wpdb }}"
     state: present
     login_user: root
-    login_password: {{ temp_pass.stdout_lines }}
+    login_password: "{{ temp_pass.stdout_lines }}"
     #login_password: "{{ mysql_root_password }}"
 - name: Create wordpress user
   mysql_user:
