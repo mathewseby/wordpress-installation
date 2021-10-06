@@ -25,13 +25,6 @@
   package:
     name: MySQL-python
     state: present
-- name: Install or update pip
-  yum:
-    name: python-pip
-    state: present
-- pip:
-    name: mysql-connector-python
-    state: present
 - name: Grep temporary root password
   shell: grep "A temporary password" /var/log/mysqld.log | awk '{print $13}'
   register: temp_pass
@@ -51,7 +44,7 @@
     name: "{{ wpdb }}"
     state: present
     login_user: root
-    login_password: temp_pass.stdout_lines
+    login_password: {{ temp_pass.stdout_lines }}
     #login_password: "{{ mysql_root_password }}"
 - name: Create wordpress user
   mysql_user:
