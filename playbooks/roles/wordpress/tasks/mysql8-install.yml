@@ -24,7 +24,7 @@
 - name: Grep temporary root password
   shell: grep "A temporary password" /var/log/mysqld.log | grep awk '{print $13}'
   register: temp_pass
- - name: Set mysql root password
+- name: Set mysql root password
    mysql_user:
     name: 'root'
     host_all: true
