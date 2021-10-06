@@ -65,5 +65,5 @@ jobs:
      #   time: '30s'
     # terraform destroy
     - name: Terraform Destroy
-      #if: always()
+      if: always()
       run: terraform destroy -auto-approve --var-file vars.tfvars
