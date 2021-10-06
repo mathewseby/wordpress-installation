@@ -12,6 +12,10 @@
   loop:
      - mysql-community-server
      - mysql-community-client
+- name: Change database username in wp-config
+  shell: sed -i 's/# default-authentication-plugin=mysql_native_password/default-authentication-plugin=mysql_native_password/g' my.cnf
+  args:
+    chdir: /etc
 - name: Start and enable mysql
   service:
    name: mysqld
