@@ -1,4 +1,4 @@
-- name: Install epel release repo for php
+- name: Install epel release
   yum:
     name: https://repo.mysql.com/mysql80-community-release-el7-3.noarch.rpm
     state: present
@@ -33,14 +33,14 @@
   register: temp_pass
 - debug:
     var: temp_pass.stdout_lines
-- name: Set mysql root password
-  mysql_user:
-    name: 'root'
-    host_all: true
-    login_user: root
-    login_password: temp_pass.stdout_lines
-    password: "{{ mysql_root_password }}"
-    update_password: always
+#- name: Set mysql root password
+#  mysql_user:
+#    name: 'root'
+#    host_all: true
+#    login_user: root
+#    login_password: temp_pass.stdout_lines
+#    password: "{{ mysql_root_password }}"
+#    update_password: always
 - name: Create wordpress database
   mysql_db:
     name: "{{ wpdb }}"
