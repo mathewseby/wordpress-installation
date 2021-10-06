@@ -24,7 +24,7 @@
 - name: Install or update pip
   community.general.easy_install:
     name: pip
-    state: latest
+    state: present
 - pip:
     name: mysql-connector-python
     state: present
