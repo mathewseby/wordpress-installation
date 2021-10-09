@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b2e77934-ca54-473c-b98b-0d950122385b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/terraform.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/terraform.yml" afterDir="false" />
-    </list>
+    <list default="true" id="b2e77934-ca54-473c-b98b-0d950122385b" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -116,7 +114,21 @@
       <option name="project" value="LOCAL" />
       <updated>1633774475551</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="test docker wordpress">
+      <created>1633775974136</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1633775974136</updated>
+    </task>
+    <task id="LOCAL-00014" summary="test docker wordpress">
+      <created>1633776223257</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1633776223257</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -129,13 +141,13 @@
     <option name="LAST_COMMIT_MESSAGE" value="test docker wordpress" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="535" y="34" width="912" height="1045" key="CommitChangelistDialog2" timestamp="1633774475514">
+    <state x="535" y="34" width="912" height="1045" key="CommitChangelistDialog2" timestamp="1633776223217">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state x="535" y="34" width="912" height="1045" key="CommitChangelistDialog2/72.27.1848.1053@72.27.1848.1053" timestamp="1633774475514" />
-    <state x="591" y="271" width="800" height="572" key="Vcs.Push.Dialog.v2" timestamp="1633774479070">
+    <state x="535" y="34" width="912" height="1045" key="CommitChangelistDialog2/72.27.1848.1053@72.27.1848.1053" timestamp="1633776223217" />
+    <state x="591" y="271" width="800" height="572" key="Vcs.Push.Dialog.v2" timestamp="1633776224076">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state x="591" y="271" width="800" height="572" key="Vcs.Push.Dialog.v2/72.27.1848.1053@72.27.1848.1053" timestamp="1633774479070" />
+    <state x="591" y="271" width="800" height="572" key="Vcs.Push.Dialog.v2/72.27.1848.1053@72.27.1848.1053" timestamp="1633776224076" />
   </component>
 </project>
