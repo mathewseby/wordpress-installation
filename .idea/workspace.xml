@@ -1,7 +1,214 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b2e77934-ca54-473c-b98b-0d950122385b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/playbooks/install-wordpress.yml" beforeDir="false" afterPath="$PROJECT_DIR$/playbooks/install-wordpress.yml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1zGGLt1mQT3PqtQwfzMdudYhUSy" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="TF_FMT" value="false" />
     <property name="last_opened_file_path" value="$USER_HOME$/Scalar/18-9-2020" />
     <property name="settings.editor.selected.configurable" value="MTHome" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b2e77934-ca54-473c-b98b-0d950122385b" name="Default Changelist" comment="" />
+      <created>1633766960366</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1633766960366</updated>
+    </task>
+    <task id="LOCAL-00001" summary="add container support">
+      <created>1633772231769</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1633772231769</updated>
+    </task>
+    <task id="LOCAL-00002" summary="add container support">
+      <created>1633772329909</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1633772329909</updated>
+    </task>
+    <task id="LOCAL-00003" summary="add container support">
+      <created>1633772493305</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1633772493305</updated>
+    </task>
+    <task id="LOCAL-00004" summary="add container support">
+      <created>1633772532469</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1633772532469</updated>
+    </task>
+    <task id="LOCAL-00005" summary="add container support">
+      <created>1633772695334</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1633772695334</updated>
+    </task>
+    <task id="LOCAL-00006" summary="add container support">
+      <created>1633772886620</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1633772886620</updated>
+    </task>
+    <task id="LOCAL-00007" summary="add container support">
+      <created>1633773081382</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1633773081382</updated>
+    </task>
+    <task id="LOCAL-00008" summary="add container support">
+      <created>1633773167518</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1633773167518</updated>
+    </task>
+    <task id="LOCAL-00009" summary="add container support">
+      <created>1633773553778</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1633773553778</updated>
+    </task>
+    <task id="LOCAL-00010" summary="install docker module">
+      <created>1633773866046</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1633773866046</updated>
+    </task>
+    <task id="LOCAL-00011" summary="install docker module">
+      <created>1633774091572</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1633774091572</updated>
+    </task>
+    <task id="LOCAL-00012" summary="test docker wordpress">
+      <created>1633774475551</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1633774475551</updated>
+    </task>
+    <task id="LOCAL-00013" summary="test docker wordpress">
+      <created>1633775974136</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1633775974136</updated>
+    </task>
+    <task id="LOCAL-00014" summary="test docker wordpress">
+      <created>1633776223257</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1633776223257</updated>
+    </task>
+    <task id="LOCAL-00015" summary="change mysql version in docker compose">
+      <created>1633776957402</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1633776957402</updated>
+    </task>
+    <task id="LOCAL-00016" summary="change mysql version in docker compose">
+      <created>1633777574515</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1633777574516</updated>
+    </task>
+    <task id="LOCAL-00017" summary="test container install">
+      <created>1633790475580</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1633790475580</updated>
+    </task>
+    <task id="LOCAL-00018" summary="test container install">
+      <created>1633791268093</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1633791268093</updated>
+    </task>
+    <task id="LOCAL-00019" summary="test container install">
+      <created>1633791589490</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1633791589490</updated>
+    </task>
+    <task id="LOCAL-00020" summary="test container install">
+      <created>1633792251958</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1633792251958</updated>
+    </task>
+    <task id="LOCAL-00021" summary="test container install">
+      <created>1633793139996</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1633793139996</updated>
+    </task>
+    <task id="LOCAL-00022" summary="test container install">
+      <created>1633793531230</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1633793531230</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add container support" />
+    <MESSAGE value="install docker module" />
+    <MESSAGE value="test docker wordpress" />
+    <MESSAGE value="change mysql version in docker compose" />
+    <MESSAGE value="test container install" />
+    <option name="LAST_COMMIT_MESSAGE" value="test container install" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="535" y="34" width="912" height="1045" key="CommitChangelistDialog2" timestamp="1633793531173">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="535" y="34" width="912" height="1045" key="CommitChangelistDialog2/72.27.1848.1053@72.27.1848.1053" timestamp="1633793531173" />
+    <state x="591" y="271" width="800" height="572" key="Vcs.Push.Dialog.v2" timestamp="1633793532325">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="591" y="271" width="800" height="572" key="Vcs.Push.Dialog.v2/72.27.1848.1053@72.27.1848.1053" timestamp="1633793532325" />
   </component>
 </project>

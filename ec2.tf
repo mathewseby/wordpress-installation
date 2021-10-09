@@ -14,15 +14,15 @@ resource "aws_instance" "wp-instance" {
     inline = ["echo Wait until SSH is ready"]
 
     connection {
-      type        = "ssh"
-      user        = var.ssh-user
-      private_key = file(local.private_key_path)
-      host        = aws_instance.wp-instance.public_ip
+      type = "ssh"
+      user = var.ssh-user
+      #private_key = file(local.private_key_path)
+      host = aws_instance.wp-instance.public_ip
     }
 
   }
   provisioner "local-exec" {
-    command = "ansible-playbook -i ${aws_instance.wp-instance.public_ip}, -u ${var.ssh-user} --private-key ${local.private_key_path} playbooks/install-wordpress.yml"
+    command = "ansible-playbook -i ${aws_instance.wp-instance.public_ip}, -u ${var.ssh-user} playbooks/install-wordpress.yml ; sleep 30s; curl -I ${aws_instance.wp-instance.public_ip}"
   }
 }
 
