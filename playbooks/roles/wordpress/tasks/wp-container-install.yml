@@ -1,7 +1,7 @@
 - name: Install docker
   shell: amazon-linux-extras install docker -y
   when: ansible_facts['distribution'] == "Amazon"
-- name: start docker service
+- name: start and enable docker service
   service:
     name: docker
     state: started
@@ -25,6 +25,14 @@
   template:
     src: docker-compose.j2
     dest: /home/ec2-user/docker-compose.yml
+- name: Install or update pip
+  yum:
+    name: python-pip
+    state: present
+- name: Install docker module
+  pip:
+    name: docker
+    state: present
 - name: Install wordpress
   docker_compose:
     project_src: /home/ec2-user
