@@ -1,6 +1,19 @@
 - name: Install docker
   shell: amazon-linux-extras install docker -y
   when: ansible_facts['distribution'] == "Amazon"
+- name: Install yum utils
+  yum:
+    name: yum-utils
+    state: present
+  when: ansible_facts['os_family'] == "CentOS"
+- name: Add docker ce repo
+  yum_repository:
+    baseurl: https://download.docker.com/linux/centos/docker-ce.repo
+  when: ansible_facts['os_family'] == "CentOS"
+- name: Install docker
+  yum:
+   name: docker-ce
+   state: present
 - name: start and enable docker service
   service:
     name: docker
