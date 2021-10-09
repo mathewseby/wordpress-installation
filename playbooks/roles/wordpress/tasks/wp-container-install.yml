@@ -25,23 +25,6 @@
   template:
     src: docker-compose.j2
     dest: /tmp/docker-compose.yml
-- name: Install or update pip
-  yum:
-    name: python-pip
-    state: present
-- name: Install docker module-py
-  pip:
-    name: docker-py
-    state: present
-  become: false
-- name: Install docker module
-  pip:
-    name: docker
-    state: present
-#- name: Install wordpress
-#  docker_compose:
-#    project_src: /home/ec2-user
-#    state: present
 - name: Install wordpress
   shell: docker-compose up -d
   args:
