@@ -1,0 +1,31 @@
+- name: Install docker
+  shell: amazon-linux-extras install docker
+  when: ansible_facts['distribution'] == "Amazon"
+- name: start docker service
+  service:
+    name: docker
+    state: started
+    enabled: yes
+- name: Add user to docker group
+  user:
+    name: ec2-user
+    groups: docker
+    append: yes
+- name: Install docker compose
+  get_url:
+    url: https://github.com/docker/compose/releases/download/v2.0.1/docker-compose-linux-x86_64
+    dest: /usr/local/bin/docker-compose
+    mode: 755
+- name: Create link
+  file:
+    src: /usr/local/bin/docker-compose
+    dest: /usr/bin/docker-compose
+    state: link
+- name: Copy docker compose
+  template:
+    src: docker-compose.j2
+    dest: /home/ec2-user/docker-compose.yml
+- name: Install wordpress
+  docker_compose:
+    project_src: /home/ec2-user
+    state: present
