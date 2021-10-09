@@ -29,7 +29,7 @@
   yum:
     name: python-pip
     state: present
-- name: Install docker module
+- name: Install docker module-py
   pip:
     name: docker-py
     state: present
@@ -47,3 +47,4 @@
   shell: docker-compose up -d
   args:
     chdir: /home/ec2-user
+  become: false
