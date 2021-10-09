@@ -1,10 +1,10 @@
 ---
  # tasks file for wordpress
-   - import_tasks: lamp-install.yml
+   - include_tasks: lamp-install.yml
      when: install_type == "server"
-   - import_tasks: mysql-setup.yml
+   - include_tasks: mysql-setup.yml
      when: install_type == "server"
-   - import_tasks: wordpress-install.yml
+   - include_tasks: wordpress-install.yml
      when: install_type == "server"
-   - import_tasks: wp-container-install.yml
+   - include_tasks: wp-container-install.yml
      when: install_type == "docker"
