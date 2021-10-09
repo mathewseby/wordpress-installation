@@ -39,7 +39,11 @@
     name: docker
     state: present
   become: false
+#- name: Install wordpress
+#  docker_compose:
+#    project_src: /home/ec2-user
+#    state: present
 - name: Install wordpress
-  docker_compose:
-    project_src: /home/ec2-user
-    state: present
+  shell: docker-compose up -d
+  args:
+    chdir: /home/ec2-user
