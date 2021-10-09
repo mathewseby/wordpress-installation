@@ -31,8 +31,9 @@
     state: present
 - name: Install docker module
   pip:
-    name: docker
+    name: docker-py
     state: present
+  become: false
 - name: Install wordpress
   docker_compose:
     project_src: /home/ec2-user
