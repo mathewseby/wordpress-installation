@@ -1,5 +1,5 @@
 - name: Install docker
-  shell: amazon-linux-extras install docker
+  shell: amazon-linux-extras install docker -y
   when: ansible_facts['distribution'] == "Amazon"
 - name: start docker service
   service:
