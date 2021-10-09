@@ -24,7 +24,7 @@
 - name: Copy docker compose
   template:
     src: docker-compose.j2
-    dest: /home/ec2-user/docker-compose.yml
+    dest: /home/$(whoami)/docker-compose.yml
 - name: Install or update pip
   yum:
     name: python-pip
@@ -46,5 +46,5 @@
 - name: Install wordpress
   shell: docker-compose up -d
   args:
-    chdir: /home/ec2-user
+    chdir: /home/$(whoami)
   become: false
