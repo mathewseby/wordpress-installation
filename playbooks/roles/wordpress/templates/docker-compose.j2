@@ -24,7 +24,7 @@ services:
     environment:
       WORDPRESS_DB_HOST: {{ dbhost }}
       WORDPRESS_DB_USER: {{ dbuser }}
-      WORDPRESS_DB_PASSWORD: {{ wordpress_user_password } }
+      WORDPRESS_DB_PASSWORD: {{ wordpress_user_password }}
       WORDPRESS_DB_NAME: {{ wpdb }}
 volumes:
   db_data: {}
