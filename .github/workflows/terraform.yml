@@ -2,10 +2,9 @@ name: 'Terraform'
 
 on:
   push:
-    branches:
-    - add-mysl-8-support
-  pull_request:
-  workflow_dispatch:
+    branches-ignore:
+      - main
+    workflow_dispatch:
 
 jobs:
   terraform:
@@ -66,5 +65,5 @@ jobs:
      #   time: '30s'
     # terraform destroy
     - name: Terraform Destroy
-      if: always()
+      #if: always()
       run: terraform destroy -auto-approve --var-file vars.tfvars
