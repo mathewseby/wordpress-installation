@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b2e77934-ca54-473c-b98b-0d950122385b" name="Default Changelist" comment="">
+    <list default="true" id="b2e77934-ca54-473c-b98b-0d950122385b" name="Default Changelist" comment="create instance">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -234,7 +234,35 @@
       <option name="project" value="LOCAL" />
       <updated>1633879735943</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="create instance">
+      <created>1633885010981</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1633885010981</updated>
+    </task>
+    <task id="LOCAL-00030" summary="create instance">
+      <created>1633885057975</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1633885057975</updated>
+    </task>
+    <task id="LOCAL-00031" summary="create instance">
+      <created>1633885301025</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1633885301025</updated>
+    </task>
+    <task id="LOCAL-00032" summary="correct docker install">
+      <created>1633885538749</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1633885538749</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -250,16 +278,18 @@
     <MESSAGE value="add tf lockfile" />
     <MESSAGE value="remove tf lock file" />
     <MESSAGE value="correct ec2 tf format" />
-    <option name="LAST_COMMIT_MESSAGE" value="correct ec2 tf format" />
+    <MESSAGE value="create instance" />
+    <MESSAGE value="correct docker install" />
+    <option name="LAST_COMMIT_MESSAGE" value="correct docker install" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="535" y="34" width="912" height="1045" key="CommitChangelistDialog2" timestamp="1633879735894">
+    <state x="535" y="34" width="912" height="1045" key="CommitChangelistDialog2" timestamp="1633885538707">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state x="535" y="34" width="912" height="1045" key="CommitChangelistDialog2/72.27.1848.1053@72.27.1848.1053" timestamp="1633879735894" />
-    <state x="591" y="271" width="800" height="572" key="Vcs.Push.Dialog.v2" timestamp="1633879736936">
+    <state x="535" y="34" width="912" height="1045" key="CommitChangelistDialog2/72.27.1848.1053@72.27.1848.1053" timestamp="1633885538707" />
+    <state x="591" y="271" width="800" height="572" key="Vcs.Push.Dialog.v2" timestamp="1633885540035">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state x="591" y="271" width="800" height="572" key="Vcs.Push.Dialog.v2/72.27.1848.1053@72.27.1848.1053" timestamp="1633879736936" />
+    <state x="591" y="271" width="800" height="572" key="Vcs.Push.Dialog.v2/72.27.1848.1053@72.27.1848.1053" timestamp="1633885540035" />
   </component>
 </project>
