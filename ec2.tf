@@ -14,10 +14,10 @@ resource "aws_instance" "wp-instance" {
     inline = ["echo Wait until SSH is ready"]
 
     connection {
-      type = "ssh"
-      user = var.ssh-user
+      type        = "ssh"
+      user        = var.ssh-user
       private_key = file(local.private_key_path)
-      host = aws_instance.wp-instance.public_ip
+      host        = aws_instance.wp-instance.public_ip
     }
 
   }
