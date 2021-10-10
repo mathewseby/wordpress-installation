@@ -14,7 +14,7 @@
   yum:
    name: docker-ce
    state: present
-   when: ansible_facts['os_family'] == "CentOS"
+  when: ansible_facts['os_family'] == "CentOS"
 - name: start and enable docker service
   service:
     name: docker
