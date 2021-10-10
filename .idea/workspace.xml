@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b2e77934-ca54-473c-b98b-0d950122385b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="b2e77934-ca54-473c-b98b-0d950122385b" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -201,7 +199,28 @@
       <option name="project" value="LOCAL" />
       <updated>1633806737192</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="add tf lockfile">
+      <created>1633878632151</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1633878632151</updated>
+    </task>
+    <task id="LOCAL-00026" summary="add tf lockfile">
+      <created>1633878787865</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1633878787865</updated>
+    </task>
+    <task id="LOCAL-00027" summary="remove tf lock file">
+      <created>1633878841607</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1633878841607</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -214,6 +233,18 @@
     <MESSAGE value="change mysql version in docker compose" />
     <MESSAGE value="test container install" />
     <MESSAGE value="add centos docker install steps" />
-    <option name="LAST_COMMIT_MESSAGE" value="add centos docker install steps" />
+    <MESSAGE value="add tf lockfile" />
+    <MESSAGE value="remove tf lock file" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove tf lock file" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="535" y="34" width="912" height="1045" key="CommitChangelistDialog2" timestamp="1633878841567">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="535" y="34" width="912" height="1045" key="CommitChangelistDialog2/72.27.1848.1053@72.27.1848.1053" timestamp="1633878841567" />
+    <state x="591" y="271" width="800" height="572" key="Vcs.Push.Dialog.v2" timestamp="1633878842655">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="591" y="271" width="800" height="572" key="Vcs.Push.Dialog.v2/72.27.1848.1053@72.27.1848.1053" timestamp="1633878842655" />
   </component>
 </project>
