@@ -39,5 +39,5 @@ resource "aws_route_table_association" "public" {
 }
 
 resource "aws_db_subnet_group" "db" {
-  subnet_ids = [aws_subnet.db-01, aws_subnet.db-02]
+  subnet_ids = [aws_subnet.db-01.id, aws_subnet.db-02.id]
 }
