@@ -1,4 +1,5 @@
 resource "aws_db_instance" "wp-rds" {
+  identifier           = "wpdb"
   allocated_storage    = 10
   engine               = "mysql"
   engine_version       = "8.0"

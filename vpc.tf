@@ -9,13 +9,15 @@ resource "aws_subnet" "ec2-01" {
 }
 
 resource "aws_subnet" "db-01" {
-  cidr_block = "172.20.2.0/24"
-  vpc_id     = aws_vpc.vpc.id
+  cidr_block        = "172.20.2.0/24"
+  vpc_id            = aws_vpc.vpc.id
+  availability_zone = ap-south-1a
 }
 
 resource "aws_subnet" "db-02" {
-  cidr_block = "172.20.3.0/24"
-  vpc_id     = aws_vpc.vpc.id
+  cidr_block        = "172.20.3.0/24"
+  vpc_id            = aws_vpc.vpc.id
+  availability_zone = ap-south-1c
 }
 
 resource "aws_internet_gateway" "igw" {
