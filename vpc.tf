@@ -8,6 +8,16 @@ resource "aws_subnet" "ec2-01" {
   map_public_ip_on_launch = true
 }
 
+resource "aws_subnet" "db-01" {
+  cidr_block = "172.20.2.0/24"
+  vpc_id     = aws_vpc.vpc.id
+}
+
+resource "aws_subnet" "db-02" {
+  cidr_block = "172.20.3.0/24"
+  vpc_id     = aws_vpc.vpc.id
+}
+
 resource "aws_internet_gateway" "igw" {
   vpc_id = aws_vpc.vpc.id
 }
@@ -26,4 +36,8 @@ resource "aws_route_table_association" "public" {
   route_table_id = aws_route_table.public.id
   subnet_id      = aws_subnet.ec2-01.id
 
+}
+
+resource "aws_db_subnet_group" "db" {
+  subnet_ids = [aws_subnet.db-01, aws_subnet.db-02]
 }

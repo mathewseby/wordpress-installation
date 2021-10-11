@@ -42,3 +42,27 @@ resource "aws_security_group_rule" "ec2-out-https" {
 
 }
 
+resource "aws_security_group" "db_sg" {
+  name        = "db_sg"
+  description = "for database instance"
+  vpc_id      = aws_vpc.vpc.id
+}
+
+resource "aws_security_group_rule" "ec2-db-outbound" {
+  type                     = "egress"
+  from_port                = 3306
+  to_port                  = 3306
+  protocol                 = "tcp"
+  security_group_id        = aws_security_group.db_sg.id
+  source_security_group_id = aws_security_group.ec2_sg.id
+}
+
+resource "aws_security_group_rule" "db-inbound" {
+  type                     = "ingress"
+  from_port                = 3306
+  to_port                  = 3306
+  protocol                 = "tcp"
+  security_group_id        = aws_security_group.ec2_sg.id
+  source_security_group_id = aws_security_group.db_sg.id
+}
+
