@@ -6,3 +6,4 @@ dbhost: localhost
 dbuser: wp-user
 wpdb: wordpress
 install_type: server
+rdshost: localhost
