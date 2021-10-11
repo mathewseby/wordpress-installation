@@ -23,7 +23,7 @@ resource "aws_instance" "wp-instance" {
 
   }
   provisioner "local-exec" {
-    command = "sed -i 's/dbhost: localhost/dbhost: ${aws_db_instance.wp-rds.endpoint}/g' playbooks/roles/wordpress/defaults/main.yml ; sed -i 's/3306//g' playbooks/roles/wordpress/defaults/main.yml ; ansible-playbook -i ${aws_instance.wp-instance.public_ip}, -u ${var.ssh-user} playbooks/install-wordpress.yml ; sleep 30s ; curl -I ${aws_instance.wp-instance.public_ip}"
+    command = "sed -i 's/dbhost: localhost/dbhost: ${aws_db_instance.wp-rds.endpoint}/g' playbooks/roles/wordpress/defaults/main.yml ; sed -i 's/:3306//g' playbooks/roles/wordpress/defaults/main.yml ; ansible-playbook -i ${aws_instance.wp-instance.public_ip}, -u ${var.ssh-user} playbooks/install-wordpress.yml ; sleep 30s ; curl -I ${aws_instance.wp-instance.public_ip}"
   }
 }
 
