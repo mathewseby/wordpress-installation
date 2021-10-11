@@ -34,7 +34,13 @@
   args:
     chdir: /var/www/html/
 
-- name: Change database password in wp-config
+ - name: Change database password in wp-config
   shell: sed -i 's/password_here/{{ wordpress_user_password }}/g' wp-config.php
   args:
     chdir: /var/www/html/
+
+- name: Change database host in wp-config
+  shell: sed -i 's/localhost/{{ rdshost }}/g' wp-config.php
+  args:
+    chdir: /var/www/html/
+  when: install_type == "rds"
