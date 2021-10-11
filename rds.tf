@@ -14,3 +14,7 @@ resource "aws_db_instance" "wp-rds" {
   ]
   db_subnet_group_name = aws_db_subnet_group.db.id
 }
+
+output "rds-output" {
+  value = aws_db_instance.wp-rds.endpoint
+}

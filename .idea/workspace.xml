@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b2e77934-ca54-473c-b98b-0d950122385b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rds.tf" beforeDir="false" afterPath="$PROJECT_DIR$/rds.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vpc.tf" beforeDir="false" afterPath="$PROJECT_DIR$/vpc.tf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -276,7 +278,21 @@
       <option name="project" value="LOCAL" />
       <updated>1633964648695</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="test rds install">
+      <created>1633965128271</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1633965128271</updated>
+    </task>
+    <task id="LOCAL-00036" summary="test rds install">
+      <created>1633965264329</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1633965264329</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -292,18 +308,18 @@
     <MESSAGE value="add tf lockfile" />
     <MESSAGE value="remove tf lock file" />
     <MESSAGE value="correct ec2 tf format" />
-    <MESSAGE value="test rds install" />
     <MESSAGE value="sg correction" />
-    <option name="LAST_COMMIT_MESSAGE" value="sg correction" />
+    <MESSAGE value="test rds install" />
+    <option name="LAST_COMMIT_MESSAGE" value="test rds install" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="535" y="34" width="912" height="1045" key="CommitChangelistDialog2" timestamp="1633964648604">
+    <state x="535" y="34" width="912" height="1045" key="CommitChangelistDialog2" timestamp="1633965264279">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state x="535" y="34" width="912" height="1045" key="CommitChangelistDialog2/72.27.1848.1053@72.27.1848.1053" timestamp="1633964648604" />
-    <state x="591" y="271" width="800" height="572" key="Vcs.Push.Dialog.v2" timestamp="1633964649858">
+    <state x="535" y="34" width="912" height="1045" key="CommitChangelistDialog2/72.27.1848.1053@72.27.1848.1053" timestamp="1633965264279" />
+    <state x="591" y="271" width="800" height="572" key="Vcs.Push.Dialog.v2" timestamp="1633965265260">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state x="591" y="271" width="800" height="572" key="Vcs.Push.Dialog.v2/72.27.1848.1053@72.27.1848.1053" timestamp="1633964649858" />
+    <state x="591" y="271" width="800" height="572" key="Vcs.Push.Dialog.v2/72.27.1848.1053@72.27.1848.1053" timestamp="1633965265260" />
   </component>
 </project>

@@ -28,6 +28,10 @@ resource "aws_route_table" "public" {
   vpc_id = aws_vpc.vpc.id
 }
 
+resource "aws_route_table" "private" {
+  vpc_id = aws_vpc.vpc.id
+}
+
 resource "aws_route" "igw-assoc" {
   route_table_id         = aws_route_table.public.id
   destination_cidr_block = "0.0.0.0/0"
@@ -38,6 +42,17 @@ resource "aws_route_table_association" "public" {
   route_table_id = aws_route_table.public.id
   subnet_id      = aws_subnet.ec2-01.id
 
+}
+
+resource "aws_route_table_association" "private" {
+  route_table_id = aws_route_table.public.id
+  subnet_id      = aws_subnet.db-01.id
+
+}
+
+resource "aws_route_table_association" "private" {
+  route_table_id = aws_route_table.public.id
+  subnet_id      = aws_subnet.db-02.id
 }
 
 resource "aws_db_subnet_group" "db" {
