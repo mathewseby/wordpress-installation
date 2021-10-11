@@ -19,4 +19,4 @@
     state: present
     login_host: "{{ rdshost }}"
     login_user: root
-    login_password: "{{ mysql_root_password }}"
+    login_password: "N$=]:%9;F7z%DX!X"
