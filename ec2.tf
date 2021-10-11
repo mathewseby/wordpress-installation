@@ -9,6 +9,7 @@ resource "aws_instance" "wp-instance" {
   root_block_device {
     volume_type = "gp3"
   }
+depends_on = [aws_db_instance.wp-rds]
 
   provisioner "remote-exec" {
     inline = ["echo Wait until SSH is ready"]
