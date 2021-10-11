@@ -5,7 +5,7 @@ resource "aws_db_instance" "wp-rds" {
   instance_class       = "db.t3.micro"
   name                 = "wp-database"
   username             = "root"
-  password             = "12345678"
+  password             = "N$=]:%9;F7z%DX!X"
   parameter_group_name = "default.mysql8.0"
   skip_final_snapshot  = true
   vpc_security_group_ids = [
