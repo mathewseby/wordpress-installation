@@ -53,8 +53,8 @@ resource "aws_security_group_rule" "ec2-db-outbound" {
   from_port                = 3306
   to_port                  = 3306
   protocol                 = "tcp"
-  security_group_id        = aws_security_group.db_sg.id
-  source_security_group_id = aws_security_group.ec2_sg.id
+  security_group_id        = aws_security_group.ec2_sg.id
+  source_security_group_id = aws_security_group.db_sg.id
 }
 
 resource "aws_security_group_rule" "db-inbound" {
@@ -62,7 +62,7 @@ resource "aws_security_group_rule" "db-inbound" {
   from_port                = 3306
   to_port                  = 3306
   protocol                 = "tcp"
-  security_group_id        = aws_security_group.ec2_sg.id
-  source_security_group_id = aws_security_group.db_sg.id
+  security_group_id        = aws_security_group.db_sg.id
+  source_security_group_id = aws_security_group.ec2_sg.id
 }
 
