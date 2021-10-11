@@ -1,0 +1,22 @@
+---
+- name: Install mysqld python libary for Ansible
+  package:
+    name: MySQL-python
+    state: present
+- name: Create wordpress database
+  mysql_db:
+    name: "{{ wpdb }}"
+    login_host: "{{ dbhost }}"
+    state: present
+    login_user: root
+    login_password: "N$=]:%9;F7z%DX!X"
+- name: Create wordpress user
+  mysql_user:
+    name: "{{ dbuser }}"
+    host: "{{ dbhost }}"
+    priv: 'wordpress.*:ALL'
+    password: "{{ wordpress_user_password }}"
+    state: present
+    login_host: "{{ dbhost }}"
+    login_user: root
+    login_password: "{{ mysql_root_password }}"

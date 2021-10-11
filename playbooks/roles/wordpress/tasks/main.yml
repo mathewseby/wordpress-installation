@@ -1,10 +1,12 @@
 ---
  # tasks file for wordpress
    - include_tasks: lamp-install.yml
-     when: install_type == "server"
+     when: install_type == "server" or install_type= "rds"
    - include_tasks: mysql-setup.yml
      when: install_type == "server"
    - include_tasks: wordpress-install.yml
-     when: install_type == "server"
+     when: install_type == "server" or install_type= "rds"
    - include_tasks: wp-container-install.yml
      when: install_type == "docker"
+   - include_tasks: mysql-rds.yml
+     when: install_type == "rds"
