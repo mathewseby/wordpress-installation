@@ -17,6 +17,5 @@ resource "aws_db_instance" "wp-rds" {
 }
 
 output "rds-output" {
-  count = var.with_rds ? 1 : 0
   value = aws_db_instance.wp-rds.endpoint
 }
