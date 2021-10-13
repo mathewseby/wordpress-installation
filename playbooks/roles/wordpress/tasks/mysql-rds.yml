@@ -20,10 +20,3 @@
     login_host: "{{ rdshost }}"
     login_user: root
     login_password: "N$=]:%9;F7z%DX!X"
-#- name: Change wordpress user host
-#  mysql_user:
-#    name: "{{ dbuser }}"
-#    host_all: yes
-#    login_host: "{{ rdshost }}"
-#    login_user: root
-#    login_password: "N$=]:%9;F7z%DX!X"

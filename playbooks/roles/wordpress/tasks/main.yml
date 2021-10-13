@@ -5,8 +5,8 @@
    - include_tasks: mysql-setup.yml
      when: install_type == "server"
    - include_tasks: mysql-rds.yml
-     when: install_type == "with_rds"
+     when: install_type == "with_rds" or install_type == "with_docker_rds"
    - include_tasks: wordpress-install.yml
      when: install_type == "server" or install_type == "with_rds"
    - include_tasks: wp-container-install.yml
-     when: install_type == "docker"
+     when: install_type == "docker" or install_type == "with_docker_rds"
