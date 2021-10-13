@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b2e77934-ca54-473c-b98b-0d950122385b" name="Default Changelist" comment="" />
+    <list default="true" id="b2e77934-ca54-473c-b98b-0d950122385b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,13 +37,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1633766960366</updated>
-    </task>
-    <task id="LOCAL-00001" summary="add container support">
-      <created>1633772231769</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1633772231769</updated>
     </task>
     <task id="LOCAL-00002" summary="add container support">
       <created>1633772329909</created>
@@ -379,7 +374,14 @@
       <option name="project" value="LOCAL" />
       <updated>1633978028169</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="modify condition ansible">
+      <created>1633978679033</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1633978679034</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -401,13 +403,13 @@
     <option name="LAST_COMMIT_MESSAGE" value="modify condition ansible" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="535" y="34" width="912" height="1045" key="CommitChangelistDialog2" timestamp="1633978028113">
+    <state x="535" y="34" width="912" height="1045" key="CommitChangelistDialog2" timestamp="1633978678969">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state x="535" y="34" width="912" height="1045" key="CommitChangelistDialog2/72.27.1848.1053@72.27.1848.1053" timestamp="1633978028113" />
-    <state x="591" y="271" width="800" height="572" key="Vcs.Push.Dialog.v2" timestamp="1633978029201">
+    <state x="535" y="34" width="912" height="1045" key="CommitChangelistDialog2/72.27.1848.1053@72.27.1848.1053" timestamp="1633978678969" />
+    <state x="591" y="271" width="800" height="572" key="Vcs.Push.Dialog.v2" timestamp="1633978679948">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state x="591" y="271" width="800" height="572" key="Vcs.Push.Dialog.v2/72.27.1848.1053@72.27.1848.1053" timestamp="1633978029201" />
+    <state x="591" y="271" width="800" height="572" key="Vcs.Push.Dialog.v2/72.27.1848.1053@72.27.1848.1053" timestamp="1633978679948" />
   </component>
 </project>

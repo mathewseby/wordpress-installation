@@ -4,6 +4,6 @@
   become: true
   become_method: sudo
   vars:
-    install_type: rds
+    install_type: with_rds
   roles:
     - wordpress
