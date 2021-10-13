@@ -20,3 +20,16 @@
     login_host: "{{ rdshost }}"
     login_user: root
     login_password: "N$=]:%9;F7z%DX!X"
+  when: install_type == "server"
+- name: Create wordpress user
+  mysql_user:
+    name: "{{ dbuser }}"
+    host: "{{ dbhost }}"
+    priv: 'wordpress.*:ALL'
+    password: "{{ wordpress_user_password }}"
+    host_all: yes
+    state: present
+    login_host: "{{ rdshost }}"
+    login_user: root
+    login_password: "N$=]:%9;F7z%DX!X"
+  when: install_type == "with_rds"
