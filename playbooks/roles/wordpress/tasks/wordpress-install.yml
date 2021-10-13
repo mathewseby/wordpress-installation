@@ -43,4 +43,4 @@
   shell: sed -i 's/localhost/{{ rdshost }}/g' wp-config.php
   args:
     chdir: /var/www/html/
-  when: install_type == "with_rds"
+  when: install_type == "server_with_rds"

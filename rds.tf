@@ -1,4 +1,5 @@
 resource "aws_db_instance" "wp-rds" {
+  count                = var.with_rds ? 1 : 0
   identifier           = "wpdb"
   allocated_storage    = 10
   engine               = "mysql"
@@ -16,5 +17,6 @@ resource "aws_db_instance" "wp-rds" {
 }
 
 output "rds-output" {
+  count = var.with_rds ? 1 : 0
   value = aws_db_instance.wp-rds.endpoint
 }

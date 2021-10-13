@@ -2,12 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b2e77934-ca54-473c-b98b-0d950122385b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/terraform.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/terraform.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/playbooks/install-wordpress.yml" beforeDir="false" afterPath="$PROJECT_DIR$/playbooks/install-wordpress.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/playbooks/roles/wordpress/tasks/main.yml" beforeDir="false" afterPath="$PROJECT_DIR$/playbooks/roles/wordpress/tasks/main.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/playbooks/roles/wordpress/tasks/mysql-rds.yml" beforeDir="false" afterPath="$PROJECT_DIR$/playbooks/roles/wordpress/tasks/mysql-rds.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/playbooks/roles/wordpress/tasks/wp-container-install.yml" beforeDir="false" afterPath="$PROJECT_DIR$/playbooks/roles/wordpress/tasks/wp-container-install.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/playbooks/roles/wordpress/tasks/wordpress-install.yml" beforeDir="false" afterPath="$PROJECT_DIR$/playbooks/roles/wordpress/tasks/wordpress-install.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rds.tf" beforeDir="false" afterPath="$PROJECT_DIR$/rds.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security-group.tf" beforeDir="false" afterPath="$PROJECT_DIR$/security-group.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/variables.tf" beforeDir="false" afterPath="$PROJECT_DIR$/variables.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vars.tfvars" beforeDir="false" afterPath="$PROJECT_DIR$/vars.tfvars" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vpc.tf" beforeDir="false" afterPath="$PROJECT_DIR$/vpc.tf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,20 +50,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1633766960366</updated>
-    </task>
-    <task id="LOCAL-00008" summary="add container support">
-      <created>1633773167518</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1633773167518</updated>
-    </task>
-    <task id="LOCAL-00009" summary="add container support">
-      <created>1633773553778</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1633773553778</updated>
     </task>
     <task id="LOCAL-00010" summary="install docker module">
       <created>1633773866046</created>
@@ -391,7 +380,21 @@
       <option name="project" value="LOCAL" />
       <updated>1634142544679</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="docker and rds test">
+      <created>1634143925198</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1634143925199</updated>
+    </task>
+    <task id="LOCAL-00058" summary="docker and rds test">
+      <created>1634144169221</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1634144169221</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -412,20 +415,21 @@
     <MESSAGE value="modify condition ansible" />
     <MESSAGE value="modify ansible import order" />
     <MESSAGE value="dbhost fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="dbhost fix" />
+    <MESSAGE value="docker and rds test" />
+    <option name="LAST_COMMIT_MESSAGE" value="docker and rds test" />
   </component>
   <component name="WindowStateProjectService">
     <state x="643" y="349" width="685" height="423" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1634143337228">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
     <state x="643" y="349" width="685" height="423" key="#com.intellij.fileTypes.FileTypeChooser/72.27.1848.1053@72.27.1848.1053" timestamp="1634143337228" />
-    <state x="535" y="34" width="912" height="1045" key="CommitChangelistDialog2" timestamp="1634142544632">
+    <state x="535" y="34" width="912" height="1045" key="CommitChangelistDialog2" timestamp="1634144169175">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state x="535" y="34" width="912" height="1045" key="CommitChangelistDialog2/72.27.1848.1053@72.27.1848.1053" timestamp="1634142544632" />
-    <state x="591" y="271" width="800" height="572" key="Vcs.Push.Dialog.v2" timestamp="1634142545688">
+    <state x="535" y="34" width="912" height="1045" key="CommitChangelistDialog2/72.27.1848.1053@72.27.1848.1053" timestamp="1634144169175" />
+    <state x="591" y="271" width="800" height="572" key="Vcs.Push.Dialog.v2" timestamp="1634144565905">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state x="591" y="271" width="800" height="572" key="Vcs.Push.Dialog.v2/72.27.1848.1053@72.27.1848.1053" timestamp="1634142545688" />
+    <state x="591" y="271" width="800" height="572" key="Vcs.Push.Dialog.v2/72.27.1848.1053@72.27.1848.1053" timestamp="1634144565905" />
   </component>
 </project>
