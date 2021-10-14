@@ -9,14 +9,14 @@ resource "aws_subnet" "ec2-01" {
 }
 
 resource "aws_subnet" "db-01" {
-  count             = var.with_rds ? 1 : 0
+  count             = "${var.install_type == "server_with_rds" ? 1 : 0}"
   cidr_block        = "172.20.2.0/24"
   vpc_id            = aws_vpc.vpc.id
   availability_zone = "ap-south-1a"
 }
 
 resource "aws_subnet" "db-02" {
-  count             = var.with_rds ? 1 : 0
+  count             = "${var.install_type == "server_with_rds" ? 1 : 0}"
   cidr_block        = "172.20.3.0/24"
   vpc_id            = aws_vpc.vpc.id
   availability_zone = "ap-south-1c"
@@ -58,5 +58,5 @@ resource "aws_route_table_association" "private-02" {
 }
 
 resource "aws_db_subnet_group" "db" {
-  subnet_ids = [aws_subnet.db-01[1].id, aws_subnet.db-02[0].id]
+  subnet_ids = [aws_subnet.db-01[0].id, aws_subnet.db-02[0].id]
 }
