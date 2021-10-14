@@ -19,7 +19,7 @@
   mysql_user:
     name: "{{ dbuser }}"
     host: "{{ dbhost }}"
-    priv: 'wordpress.*:ALL'
+    priv: '{{ wpdb }}.*:ALL'
     password: "{{ wordpress_user_password }}"
     state: present
     login_user: root
