@@ -4,4 +4,4 @@ variable "private_key_path" {}
 variable "instance-type" {}
 variable "instance-ami" {}
 variable "region" {}
-variable "with_rds" {}
+variable "install_type" {}

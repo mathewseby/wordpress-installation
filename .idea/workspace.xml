@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b2e77934-ca54-473c-b98b-0d950122385b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/playbooks/roles/wordpress/tasks/main.yml" beforeDir="false" afterPath="$PROJECT_DIR$/playbooks/roles/wordpress/tasks/main.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rds.tf" beforeDir="false" afterPath="$PROJECT_DIR$/rds.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/variables.tf" beforeDir="false" afterPath="$PROJECT_DIR$/variables.tf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vars.tfvars" beforeDir="false" afterPath="$PROJECT_DIR$/vars.tfvars" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -410,19 +413,5 @@
     <MESSAGE value="docker and rds test" />
     <MESSAGE value="rds conditional" />
     <option name="LAST_COMMIT_MESSAGE" value="rds conditional" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="643" y="349" width="685" height="423" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1634143337228">
-      <screen x="72" y="27" width="1848" height="1053" />
-    </state>
-    <state x="643" y="349" width="685" height="423" key="#com.intellij.fileTypes.FileTypeChooser/72.27.1848.1053@72.27.1848.1053" timestamp="1634143337228" />
-    <state x="535" y="34" width="912" height="1045" key="CommitChangelistDialog2" timestamp="1634150123678">
-      <screen x="72" y="27" width="1848" height="1053" />
-    </state>
-    <state x="535" y="34" width="912" height="1045" key="CommitChangelistDialog2/72.27.1848.1053@72.27.1848.1053" timestamp="1634150123678" />
-    <state x="591" y="271" width="800" height="572" key="Vcs.Push.Dialog.v2" timestamp="1634150124639">
-      <screen x="72" y="27" width="1848" height="1053" />
-    </state>
-    <state x="591" y="271" width="800" height="572" key="Vcs.Push.Dialog.v2/72.27.1848.1053@72.27.1848.1053" timestamp="1634150124639" />
   </component>
 </project>
