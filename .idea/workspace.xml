@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b2e77934-ca54-473c-b98b-0d950122385b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/playbooks/roles/wordpress/tasks/main.yml" beforeDir="false" afterPath="$PROJECT_DIR$/playbooks/roles/wordpress/tasks/main.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rds.tf" beforeDir="false" afterPath="$PROJECT_DIR$/rds.tf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/variables.tf" beforeDir="false" afterPath="$PROJECT_DIR$/variables.tf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vars.tfvars" beforeDir="false" afterPath="$PROJECT_DIR$/vars.tfvars" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security-group.tf" beforeDir="false" afterPath="$PROJECT_DIR$/security-group.tf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,13 +42,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1633766960366</updated>
-    </task>
-    <task id="LOCAL-00016" summary="change mysql version in docker compose">
-      <created>1633777574515</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1633777574516</updated>
     </task>
     <task id="LOCAL-00017" summary="test container install">
       <created>1633790475580</created>
@@ -389,7 +379,14 @@
       <option name="project" value="LOCAL" />
       <updated>1634150123715</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="rds conditional">
+      <created>1634232030157</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1634232030158</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
