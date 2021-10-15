@@ -50,7 +50,6 @@ resource "aws_security_group" "db_sg" {
 }
 
 resource "aws_security_group_rule" "ec2-db-outbound" {
-  count                    = var.install_type == "server_with_rds" ? aws_security_group.db_sg[0].id : null
   type                     = "egress"
   from_port                = 3306
   to_port                  = 3306
@@ -60,7 +59,6 @@ resource "aws_security_group_rule" "ec2-db-outbound" {
 }
 
 resource "aws_security_group_rule" "db-inbound" {
-  count                    = var.install_type == "server_with_rds" ? aws_security_group.db_sg[0].id : null
   type                     = "ingress"
   from_port                = 3306
   to_port                  = 3306
