@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b2e77934-ca54-473c-b98b-0d950122385b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/security-group.tf" beforeDir="false" afterPath="$PROJECT_DIR$/security-group.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vpc.tf" beforeDir="false" afterPath="$PROJECT_DIR$/vpc.tf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -410,5 +412,11 @@
     <MESSAGE value="docker and rds test" />
     <MESSAGE value="rds conditional" />
     <option name="LAST_COMMIT_MESSAGE" value="rds conditional" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="773" y="174" width="436" height="765" key="RollbackChangesDialog" timestamp="1634320724922">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="773" y="174" width="436" height="765" key="RollbackChangesDialog/72.27.1848.1053@72.27.1848.1053" timestamp="1634320724922" />
   </component>
 </project>
