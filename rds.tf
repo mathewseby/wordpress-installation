@@ -17,5 +17,5 @@ resource "aws_db_instance" "wp-rds" {
 }
 
 #output "rds-output" {
- # value = aws_db_instance.wp-rds[0].endpoint
+# value = aws_db_instance.wp-rds[0].endpoint
 #}
