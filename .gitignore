@@ -6,3 +6,4 @@
 /playbooks/roles/wordpress/tests/
 /.terraform.tfstate.lock.info
 /.terraform.tfstate.lock
+/.idea
