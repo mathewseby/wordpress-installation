@@ -17,6 +17,6 @@ resource "aws_db_instance" "wp-rds" {
 }
 
 output "rds-output" {
- #value = length(aws_db_instance.wp-rds)> 0 ? aws_db_instance.wp-rds.endpoint: ""
- value = join("", aws_db_instance.wp-rds.*.id)
+  #value = length(aws_db_instance.wp-rds)> 0 ? aws_db_instance.wp-rds.endpoint: ""
+  value = join("", aws_db_instance.wp-rds.*.id)
 }
