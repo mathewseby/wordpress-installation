@@ -50,13 +50,12 @@ resource "aws_security_group" "db_sg" {
 }
 
 resource "aws_security_group_rule" "ec2-db-outbound" {
-  count             = var.install_type == "server_with_rds" ? 1 : 0
-  type              = "egress"
-  from_port         = 3306
-  to_port           = 3306
-  protocol          = "tcp"
-  security_group_id = aws_security_group.ec2_sg.id
-  #source_security_group_id = aws_security_group.db_sg.id
+  count                    = var.install_type == "server_with_rds" ? 1 : 0
+  type                     = "egress"
+  from_port                = 3306
+  to_port                  = 3306
+  protocol                 = "tcp"
+  security_group_id        = aws_security_group.ec2_sg.id
   source_security_group_id = aws_security_group.db_sg.*.id[count.index]
 }
 
@@ -66,8 +65,6 @@ resource "aws_security_group_rule" "db-inbound" {
   from_port = 3306
   to_port   = 3306
   protocol  = "tcp"
-  #security_group_id        = aws_security_group.db_sg.id
   security_group_id        = aws_security_group.db_sg.*.id[count.index]
   source_security_group_id = aws_security_group.ec2_sg.id
 }
-
