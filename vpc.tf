@@ -9,14 +9,14 @@ resource "aws_subnet" "ec2-01" {
 }
 
 resource "aws_subnet" "db-01" {
-  count             = var.install_type == "server_with_rds" ? 1 : 0
+  #count             = var.install_type == "server_with_rds" ? 1 : 0
   cidr_block        = "172.20.2.0/24"
   vpc_id            = aws_vpc.vpc.id
   availability_zone = "ap-south-1a"
 }
 
 resource "aws_subnet" "db-02" {
-  count             = var.install_type == "server_with_rds" ? 1 : 0
+  #count             = var.install_type == "server_with_rds" ? 1 : 0
   cidr_block        = "172.20.3.0/24"
   vpc_id            = aws_vpc.vpc.id
   availability_zone = "ap-south-1c"
@@ -48,15 +48,16 @@ resource "aws_route_table_association" "public" {
 
 resource "aws_route_table_association" "private-01" {
   route_table_id = aws_route_table.private.id
-  subnet_id      = join("", aws_subnet.db-01.*.id)
+  subnet_id      = aws_subnet.db-01.*.id
 
 }
 
 resource "aws_route_table_association" "private-02" {
   route_table_id = aws_route_table.private.id
-  subnet_id      = join("", aws_subnet.db-02.*.id)
+  #subnet_id      = join("", aws_subnet.db-02.*.id)
+  subnet_id = aws_subnet.db-02.*.id
 }
 
 resource "aws_db_subnet_group" "db" {
-  subnet_ids = [join("", aws_subnet.db-02.*.id), join("", aws_subnet.db-01.*.id)]
+  subnet_ids = [aws_subnet.db-02.id, aws_subnet.db-01.id]
 }
