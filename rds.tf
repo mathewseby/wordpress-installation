@@ -1,5 +1,5 @@
 resource "aws_db_instance" "wp-rds" {
-  count                = var.install_type == "server_with_rds" || var.install_type == "with_docker_rds" ? 1 : 0
+  count                = var.install_type == "server_with_rds" ? 1 : 0
   identifier           = "wpdb"
   allocated_storage    = 10
   engine               = "mysql"
