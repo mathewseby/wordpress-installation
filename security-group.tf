@@ -60,11 +60,11 @@ resource "aws_security_group_rule" "ec2-db-outbound" {
 }
 
 resource "aws_security_group_rule" "db-inbound" {
-  count     = var.install_type == "server_with_rds" ? 1 : 0
-  type      = "ingress"
-  from_port = 3306
-  to_port   = 3306
-  protocol  = "tcp"
+  count                    = var.install_type == "server_with_rds" ? 1 : 0
+  type                     = "ingress"
+  from_port                = 3306
+  to_port                  = 3306
+  protocol                 = "tcp"
   security_group_id        = aws_security_group.db_sg.*.id[count.index]
   source_security_group_id = aws_security_group.ec2_sg.id
 }
