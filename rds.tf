@@ -17,5 +17,5 @@ resource "aws_db_instance" "wp-rds" {
 }
 
 output "rds-output" {
-  value = join("", aws_db_instance.wp-rds[*].id)
+  value = one(aws_db_instance.wp-rds[*].id)
 }
