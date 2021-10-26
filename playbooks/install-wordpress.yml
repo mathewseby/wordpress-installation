@@ -4,6 +4,6 @@
   become: true
   become_method: sudo
   vars:
-    install_type: server
+    install_type: docker
   roles:
     - wordpress
