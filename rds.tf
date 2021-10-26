@@ -1,5 +1,5 @@
 resource "aws_db_instance" "wp-rds" {
-  count                = var.install_type == "server_with_rds" ? 1 : 0
+  count                =  var.install_type == "server_with_rds" || var.install_type == "with_docker_rds" ? 1 : 0
   identifier           = "wpdb"
   allocated_storage    = 10
   engine               = "mysql"
@@ -11,11 +11,11 @@ resource "aws_db_instance" "wp-rds" {
   parameter_group_name = "default.mysql8.0"
   skip_final_snapshot  = true
   vpc_security_group_ids = [
-    "${aws_security_group.db_sg.*.id}"
+    "${aws_security_group.db_sg[*].id}"
   ]
-  db_subnet_group_name = aws_db_subnet_group.db.*.id
+  db_subnet_group_name = aws_db_subnet_group.db[*].id
 }
 
 output "rds-output" {
-  value = join("", aws_db_instance.wp-rds.*.id)
+  value = join("", aws_db_instance.wp-rds[*].id)
 }
