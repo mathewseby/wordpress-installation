@@ -49,18 +49,18 @@ resource "aws_route_table_association" "public" {
 
 resource "aws_route_table_association" "private-01" {
   count          = var.install_type == "server_with_rds" || var.install_type == "with_docker_rds" ? 1 : 0
-  route_table_id = aws_route_table.private.*.id
-  subnet_id      = aws_subnet.db-01[*].id
+  route_table_id = one(aws_route_table.private[*].id)
+  subnet_id      = one(aws_subnet.db-01[*].id)
 
 }
 
 resource "aws_route_table_association" "private-02" {
   count          = var.install_type == "server_with_rds" || var.install_type == "with_docker_rds" ? 1 : 0
-  route_table_id = aws_route_table.private.*.id
-  subnet_id      = aws_subnet.db-02[*].id
+  route_table_id = one(aws_route_table.private[*].id)
+  subnet_id      = one(aws_subnet.db-02[*].id)
 }
 
 resource "aws_db_subnet_group" "db" {
   count      = var.install_type == "server_with_rds" || var.install_type == "with_docker_rds" ? 1 : 0
-  subnet_ids = [aws_subnet.db-02[*].id, aws_subnet.db-01[*].id]
+  subnet_ids = [one(aws_subnet.db-02[*].id), one(aws_subnet.db-01[*].id)]
 }
