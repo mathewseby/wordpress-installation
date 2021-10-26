@@ -26,7 +26,7 @@ resource "aws_instance" "wp-instance" {
 }
 
 resource "null_resource" "rds-server-provision" {
-  count =var.install_type == "server_with_rds" || var.install_type == "with_docker_rds" ? 1 : 0
+  count = var.install_type == "server_with_rds" || var.install_type == "with_docker_rds" ? 1 : 0
   provisioner "local-exec" {
     command = "sed -i 's/rdshost: localhost/rdshost: ${aws_db_instance.wp-rds[0].endpoint}/g' playbooks/roles/wordpress/defaults/main.yml ; sed -i 's/:3306//g' playbooks/roles/wordpress/defaults/main.yml ; ansible-playbook -i ${aws_instance.wp-instance.public_ip}, -u ${var.ssh-user} playbooks/install-wordpress.yml ; sleep 30s ; curl -I ${aws_instance.wp-instance.public_ip}"
   }
