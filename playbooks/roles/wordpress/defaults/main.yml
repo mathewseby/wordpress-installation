@@ -6,4 +6,4 @@ dbhost: '%' #database-user-host, values: localhost, %
 dbuser: wp-user
 wpdb: wordpress
 install_type: server
-rdshost:
+rdshost: localhost
