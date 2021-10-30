@@ -5,3 +5,4 @@ variable "instance-type" {}
 variable "instance-ami" {}
 variable "region" {}
 variable "install_type" {}
+variable "rds_root_password" {}
