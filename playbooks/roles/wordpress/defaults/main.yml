@@ -2,7 +2,7 @@
 # defaults file for wordpress
 mysql_root_password: ''
 wordpress_user_password: 12345678
-dbuserhost: '%' #database-user-host, values: localhost, %
+dbuserhost: '' #database-user-host, values: localhost, %
 dbuser: wp-user
 wpdb: wordpress
 install_type: server
