@@ -18,7 +18,7 @@
 - name: Create wordpress user
   mysql_user:
     name: "{{ dbuser }}"
-    host: "{{ dbhost }}"
+    host: "{{ dbuserhost }}"
     priv: '{{ wpdb }}.*:ALL'
     password: "{{ wordpress_user_password }}"
     state: present

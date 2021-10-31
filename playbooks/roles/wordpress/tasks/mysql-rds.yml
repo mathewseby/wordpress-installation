@@ -9,14 +9,14 @@
     login_host: "{{ rdshost }}"
     state: present
     login_user: root
-    login_password: "N$=]:%9;F7z%DX!X"
+    login_password: "{{ mysql_root_password }}"
 - name: Create wordpress user
   mysql_user:
     name: "{{ dbuser }}"
-    host: "{{ dbhost }}"
+    host: "{{ dbuserhost }}"
     priv: '{{ wpdb }}.*:ALL'
     password: "{{ wordpress_user_password }}"
     state: present
     login_host: "{{ rdshost }}"
     login_user: root
-    login_password: "N$=]:%9;F7z%DX!X"
+    login_password: "{{ mysql_root_password }}"
