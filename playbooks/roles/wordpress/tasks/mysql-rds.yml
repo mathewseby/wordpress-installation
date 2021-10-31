@@ -3,15 +3,10 @@
   package:
     name: MySQL-python
     state: present
-- name: Set mysql root password
-  mysql_user:
-    name: 'root'
-    host_all: true
-    password: "{{ mysql_root_password }}"
-    state: present
 - name: Create wordpress database
   mysql_db:
     name: "{{ wpdb }}"
+    login_host: "{{ rdshost }}"
     state: present
     login_user: root
     login_password: "{{ mysql_root_password }}"
@@ -22,5 +17,6 @@
     priv: '{{ wpdb }}.*:ALL'
     password: "{{ wordpress_user_password }}"
     state: present
+    login_host: "{{ rdshost }}"
     login_user: root
     login_password: "{{ mysql_root_password }}"

@@ -7,11 +7,13 @@
   package:
     name: mariadb-server
     state: latest
+  when: install_type == "server"
 - name: Start and enable mysql
   service:
     name: mariadb
     state: started
     enabled: yes
+  when: install_type == "server"
 - name: Install epel release repo for php
   yum:
     name: https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm

@@ -39,6 +39,12 @@
   template:
     src: docker-compose.j2
     dest: /tmp/docker-compose.yml
+  when: install_type == "docker"
+- name: Copy docker compose
+  template:
+    src: docker-compose-rds.j2
+    dest: /tmp/docker-compose.yml
+  when: install_type == "with_docker_rds"
 - name: Install wordpress
   shell: docker-compose up -d
   args:
