@@ -5,4 +5,4 @@ variable "instance-type" {}
 variable "instance-ami" {}
 variable "region" {}
 variable "install_type" {}
-variable "mysql_root_password" {}
+#variable "mysql_root_password" {}
