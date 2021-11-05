@@ -58,11 +58,18 @@ jobs:
       #if: github.ref == 'refs/heads/main' && github.event_name == 'push'
       run: terraform apply -auto-approve --var-file vars.tfvars
 
+    # Health check
+    - uses: matt-ball/newman-action@master
+      with:
+        collection: postman_collection.json
+        environment: postman_environment.json
+
     # Wait before destroy
     - name: Sleep for 30 seconds
       uses: jakejarvis/wait-action@master
       with:
         time: '30s'
+
     # terraform destroy
     - name: Terraform Destroy
       if: always()
