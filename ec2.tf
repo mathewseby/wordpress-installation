@@ -27,7 +27,7 @@ resource "aws_instance" "wp-instance" {
 
 resource "null_resource" "install_mitogen" {
   provisioner "local-exec" {
-    command = "ansible --version ; ansible-galaxy install robertdebock.mitogen ; ansible-galaxy install robertdebock.bootstrap; ansible-galaxy install robertdebock.epel ; ansible-galaxy install robertdebock.python_pip ; ansible-playbook -i localhost playbooks/install-mitogen.yml"
+    command = "pip install ansible-base==2.10 ; ansible --version ; ansible-playbook -i localhost playbooks/install-mitogen.yml"
   }
 }
 
