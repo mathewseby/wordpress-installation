@@ -1,7 +1,7 @@
---
+---
 - name: Install mitogen
   hosts: all
   become: true
   become_method: sudo
   roles:
-    - role: robertdebock.mitogen
+    - robertdebock.mitogen
