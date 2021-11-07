@@ -5,4 +5,8 @@
   become: true
   become_method: sudo
   roles:
+    - robertdebock.bootstrap
+    - robertdebock.core_dependencies
+    - robertdebock.epel
+    - robertdebock.python_pip
     - robertdebock.mitogen
