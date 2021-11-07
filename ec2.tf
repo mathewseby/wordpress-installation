@@ -17,12 +17,18 @@ resource "aws_instance" "wp-instance" {
     connection {
       type = "ssh"
       user = var.ssh-user
-      private_key = file(local.private_key_path)
+      #private_key = file(local.private_key_path)
       host = aws_instance.wp-instance.public_ip
     }
 
   }
 
+}
+
+resource "null_resource" "install_mitogen" {
+  provisioner "local-exec" {
+    command = "ansible-galaxy install robertdebock.mitogen ; ansible-playbook -i localhost, -u ${var.ssh-user} playbooks/install-mitogen.yml"
+  }
 }
 
 resource "null_resource" "rds-server-provision" {
