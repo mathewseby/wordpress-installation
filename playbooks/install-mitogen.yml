@@ -1,6 +1,7 @@
 ---
 - name: Install mitogen
-  hosts: all
+  hosts: localhost
+  connection: local
   become: true
   become_method: sudo
   roles:
