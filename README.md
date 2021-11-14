@@ -11,8 +11,7 @@ run Wordpress in it.
 * Create EC2, RDS and install Wordpress in docker container and use RDS for MySQL.
 
 Note: 
-* Database used for the wordpress is mariadb in this setup.
-* Ansible role supports both centos and amazon-linux 2
+* Ansible role supports both centos and amazon-linux 2 OS.
 
 ## How to run
 
@@ -22,13 +21,14 @@ Note:
 * [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
 * Disable strict host key checking in ansible config (change `host_key_checking = False` in ansible.cfg)
 
-### Preperation
+### Preparation
 
 * Create and download ssh key from AWS
 * Clone the git repository
 
 ```console
 git clone https://github.com/mathewseby/wordpress.git
+cd wordpress
 ```
 
 ### Step to run
@@ -44,7 +44,8 @@ instance-ami = "<ami id of the instance>"
 region = "<aws region to create resources>"
 ```
 
-* Update ansible roles variable (sample variable values are added in [defaults](./playbooks/roles/wordpress/defaults/main.yml)) in wordpress roles folder)
+* Update ansible roles variable (sample variable values are added in [defaults](./playbooks/roles/wordpress/defaults/main.yml)) in wordpress roles folder), or you can 
+override the variables in [playbook](playbooks/install-wordpress.yml).
 
 ```console
 mysql_root_password: <root password>
