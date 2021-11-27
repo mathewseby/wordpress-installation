@@ -117,19 +117,19 @@ resource "aws_route_table_association" "private-03" {
   subnet_id      = one(aws_subnet.efs-01[*].id)
 }
 
-resource "aws_route_table_association" "private-04" {
+resource "aws_route_table_association" "private-05" {
   count          = var.install_type == "ecs" ? 1 : 0
   route_table_id = one(aws_route_table.private[*].id)
   subnet_id      = one(aws_subnet.efs-02[*].id)
 }
 
-resource "aws_route_table_association" "private-04" {
+resource "aws_route_table_association" "private-06" {
   count          = var.install_type == "ecs" ? 1 : 0
   route_table_id = one(aws_route_table.private[*].id)
   subnet_id      = one(aws_subnet.ecs-01[*].id)
 }
 
-resource "aws_route_table_association" "private-04" {
+resource "aws_route_table_association" "private-07" {
   count          = var.install_type == "ecs" ? 1 : 0
   route_table_id = one(aws_route_table.private[*].id)
   subnet_id      = one(aws_subnet.ecs-02[*].id)
