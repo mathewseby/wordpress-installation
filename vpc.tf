@@ -106,7 +106,7 @@ resource "aws_route_table_association" "private-01" {
 }
 
 resource "aws_route_table_association" "private-02" {
-  count          = var.install_type == "server_with_rds" || var.install_type == "with_docker_rds" ? 1 : 0
+  count          = var.install_type == "server_with_rds" || var.install_type == "with_docker_rds" || var.install_type == "ecs" ? 1 : 0
   route_table_id = one(aws_route_table.private[*].id)
   subnet_id      = one(aws_subnet.db-02[*].id)
 }
