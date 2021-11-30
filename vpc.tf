@@ -9,13 +9,13 @@ resource "aws_subnet" "ec2-01" {
 }
 
 resource "aws_subnet" "ecs-01" {
-  count      = var.install_type == "ecs"
+  count      = var.install_type == "ecs" ? 1 : 0
   cidr_block = "172.20.2.0/24"
   vpc_id     = aws_vpc.vpc.id
 }
 
 resource "aws_subnet" "ecs-02" {
-  count      = var.install_type == "ecs"
+  count      = var.install_type == "ecs" ? 1 : 0
   cidr_block = "172.20.3.0/24"
   vpc_id     = aws_vpc.vpc.id
 }
@@ -87,14 +87,14 @@ resource "aws_route_table_association" "public-02" {
   count = var.install_type == "ecs" ? 1 : 0
 
   route_table_id = aws_route_table.public.id
-  subnet_id      = aws_subnet.lb-01.id
+  subnet_id      = one(aws_subnet.lb-01[*].id)
 
 }
 
 resource "aws_route_table_association" "public-03" {
   count          = var.install_type == "ecs" ? 1 : 0
   route_table_id = aws_route_table.public.id
-  subnet_id      = aws_subnet.lb-02.id
+  subnet_id      = one(aws_subnet.lb-02[*].id)
 
 }
 

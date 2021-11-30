@@ -93,7 +93,7 @@ resource "aws_security_group_rule" "lb-outbound" {
   to_port                  = 80
   protocol                 = "tcp"
   security_group_id        = one(aws_security_group.lb-sg[*].id)
-  source_security_group_id = aws_security_group.ecs-sg.id
+  source_security_group_id = one(aws_security_group.ecs-sg[*].id)
 }
 
 resource "aws_security_group" "ecs-sg" {
@@ -110,7 +110,7 @@ resource "aws_security_group_rule" "ecs-inbound" {
   to_port                  = 80
   protocol                 = "tcp"
   security_group_id        = one(aws_security_group.ecs-sg[*].id)
-  source_security_group_id = aws_security_group.lb-sg.id
+  source_security_group_id = one(aws_security_group.lb-sg[*].id)
 }
 
 resource "aws_security_group" "efs-sg" {
@@ -127,5 +127,5 @@ resource "aws_security_group_rule" "efs-inbound" {
   to_port                  = 2049
   protocol                 = "tcp"
   security_group_id        = one(aws_security_group.efs-sg[*].id)
-  source_security_group_id = aws_security_group.ecs-sg.id
+  source_security_group_id = one(aws_security_group.ecs-sg[*].id)
 }
