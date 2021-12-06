@@ -43,7 +43,6 @@ resource "aws_security_group_rule" "ec2-out-https" {
 }
 
 resource "aws_security_group" "db_sg" {
-  count       = var.install_type == "server_with_rds" || var.install_type == "with_docker_rds" ? 1 : 0
   name        = "db_sg"
   description = "for database instance"
   vpc_id      = aws_vpc.vpc.id
