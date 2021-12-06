@@ -5,7 +5,7 @@ resource "aws_lb" "alb" {
   security_groups    = ["${one(aws_security_group.lb-sg[*].id)}"]
 
 
-  subnets = ["{one(aws_subnet.lb-01[*].id)}", "{one(aws_subnet.lb-02[*].id)}"]
+  subnets = ["${one(aws_subnet.lb-01[*].id)}", "${one(aws_subnet.lb-02[*].id)}"]
 }
 
 resource "aws_lb_listener" "http-port" {
