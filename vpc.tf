@@ -21,12 +21,12 @@ resource "aws_subnet" "ecs-01" {
 #  vpc_id     = aws_vpc.vpc.id
 #}
 
-#resource "aws_subnet" "efs-01" {
-#  count      = var.install_type == "ecs" ? 1 : 0
-#  cidr_block = "172.20.4.0/24"
-#  vpc_id     = aws_vpc.vpc.id
-#}
-#
+resource "aws_subnet" "efs-01" {
+  count      = var.install_type == "ecs" ? 1 : 0
+  cidr_block = "172.20.4.0/24"
+  vpc_id     = aws_vpc.vpc.id
+}
+
 ##resource "aws_subnet" "efs-02" {
 ##  count      = var.install_type == "ecs" ? 1 : 0
 ##  cidr_block = "172.20.5.0/24"
@@ -67,11 +67,11 @@ resource "aws_route_table" "public" {
   vpc_id = aws_vpc.vpc.id
 }
 
-#resource "aws_route_table" "private" {
-#  count  = var.install_type == "server_with_rds" || var.install_type == "with_docker_rds" || var.install_type == "ecs" ? 1 : 0
-#  vpc_id = aws_vpc.vpc.id
-#}
-#
+resource "aws_route_table" "private" {
+  count  = var.install_type == "server_with_rds" || var.install_type == "with_docker_rds" || var.install_type == "ecs" ? 1 : 0
+  vpc_id = aws_vpc.vpc.id
+}
+
 resource "aws_route" "igw-assoc" {
   route_table_id         = aws_route_table.public.id
   destination_cidr_block = "0.0.0.0/0"
@@ -79,9 +79,8 @@ resource "aws_route" "igw-assoc" {
 }
 
 resource "aws_route_table_association" "public-01" {
-  count          = var.install_type == "server_with_rds" || var.install_type == "with_docker_rds" || var.install_type == "ecs" ? 1 : 0
   route_table_id = aws_route_table.public.id
-  subnet_id      = one(aws_subnet.ecs-01[*].id)
+  subnet_id      = aws_subnet.ec2-01.id
 
 }
 
@@ -112,12 +111,12 @@ resource "aws_route_table_association" "public-01" {
 #  subnet_id      = one(aws_subnet.db-02[*].id)
 #}
 #
-#resource "aws_route_table_association" "private-03" {
-#  count          = var.install_type == "ecs" ? 1 : 0
-#  route_table_id = one(aws_route_table.private[*].id)
-#  subnet_id      = one(aws_subnet.efs-01[*].id)
-#}
-#
+resource "aws_route_table_association" "private-03" {
+  count          = var.install_type == "ecs" ? 1 : 0
+  route_table_id = one(aws_route_table.private[*].id)
+  subnet_id      = one(aws_subnet.efs-01[*].id)
+}
+
 #resource "aws_route_table_association" "private-05" {
 #  count          = var.install_type == "ecs" ? 1 : 0
 #  route_table_id = one(aws_route_table.private[*].id)
