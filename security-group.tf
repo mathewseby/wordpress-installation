@@ -69,7 +69,7 @@ resource "aws_security_group_rule" "db-inbound" {
   source_security_group_id = aws_security_group.ec2_sg.id
 }
 
-resource "aws_security_group" "lb_sg" {
+resource "aws_security_group" "lb-sg" {
   count       = var.install_type == "ecs" ? 1 : 0
   name        = "lb_sg"
   description = "for alb"
@@ -92,7 +92,7 @@ resource "aws_security_group_rule" "lb-outbound" {
   from_port                = 80
   to_port                  = 80
   protocol                 = "tcp"
-  security_group_id        = one(aws_security_group.lb_sg[*].id)
+  security_group_id        = one(aws_security_group.lb-sg[*].id)
   source_security_group_id = one(aws_security_group.ecs-sg[*].id)
 }
 
@@ -110,7 +110,7 @@ resource "aws_security_group_rule" "ecs-inbound" {
   to_port                  = 80
   protocol                 = "tcp"
   security_group_id        = one(aws_security_group.ecs-sg[*].id)
-  source_security_group_id = one(aws_security_group.lb_sg[*].id)
+  source_security_group_id = one(aws_security_group.lb-sg[*].id)
 }
 
 resource "aws_security_group" "efs-sg" {
