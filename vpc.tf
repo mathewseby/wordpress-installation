@@ -48,15 +48,17 @@ resource "aws_subnet" "db-02" {
 }
 
 resource "aws_subnet" "lb-01" {
-  count      = var.install_type == "ecs" ? 1 : 0
-  cidr_block = "172.20.8.0/24"
-  vpc_id     = aws_vpc.vpc.id
+  count             = var.install_type == "ecs" ? 1 : 0
+  cidr_block        = "172.20.8.0/24"
+  availability_zone = "ap-south-1a"
+  vpc_id            = aws_vpc.vpc.id
 }
 
 resource "aws_subnet" "lb-02" {
-  count      = var.install_type == "ecs" ? 1 : 0
-  cidr_block = "172.20.9.0/24"
-  vpc_id     = aws_vpc.vpc.id
+  count             = var.install_type == "ecs" ? 1 : 0
+  cidr_block        = "172.20.9.0/24"
+  availability_zone = "ap-south-1b"
+  vpc_id            = aws_vpc.vpc.id
 }
 
 resource "aws_internet_gateway" "igw" {
