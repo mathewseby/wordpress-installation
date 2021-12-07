@@ -11,7 +11,7 @@ resource "aws_db_instance" "wp-rds" {
   parameter_group_name = "default.mysql8.0"
   skip_final_snapshot  = true
   vpc_security_group_ids = [
-    "${one(aws_security_group.db_sg[*].id)}"
+    "${one(aws_security_group.db-sg[*].id)}"
   ]
   db_subnet_group_name = one(aws_db_subnet_group.db[*].id)
 }
