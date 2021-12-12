@@ -6,12 +6,13 @@ resource "aws_ecs_task_definition" "service" {
   family = "service"
   container_definitions = jsonencode([
     {
-      name         = "wp"
-      image        = "registry.hub.docker.com/library/wordpress:latest"
-      cpu          = 10
-      memory       = 512
-      essential    = true
-      network_mode = "awsvpc"
+      name                     = "wp"
+      image                    = "registry.hub.docker.com/library/wordpress:latest"
+      cpu                      = 10
+      memory                   = 512
+      essential                = true
+      network_mode             = "awsvpc"
+      requires_compatibilities = "FARGATE"
       portMappings = [
         {
           containerPort = 80
