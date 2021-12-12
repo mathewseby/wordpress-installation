@@ -3,13 +3,14 @@ resource "aws_ecs_cluster" "wp-ecs" {
 }
 
 resource "aws_ecs_task_definition" "service" {
-  family       = "service"
-  network_mode = "awsvpc"
+  family                   = "service"
+  network_mode             = "awsvpc"
+  requires_compatibilities = ["FARGATE"]
   container_definitions = jsonencode([
     {
       name      = "wp"
       image     = "registry.hub.docker.com/library/wordpress:latest"
-      cpu       = 10
+      cpu       = 2
       memory    = 512
       essential = true
       portMappings = [
@@ -29,7 +30,6 @@ resource "aws_ecs_task_definition" "service" {
 }
 
 resource "aws_ecs_service" "wp-ecs-service" {
-  depends_on      = ["aws_lb_listener.http-port"]
   name            = "wp-ecs-service"
   cluster         = aws_ecs_cluster.wp-ecs.id
   task_definition = aws_ecs_task_definition.service.id
