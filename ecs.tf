@@ -29,7 +29,7 @@ resource "aws_ecs_task_definition" "service" {
 }
 
 resource "aws_ecs_service" "wp-ecs-service" {
-  depends_on      = ["${aws_lb_listener.http-port}"]
+  depends_on      = ["aws_lb_listener.http-port"]
   name            = "wp-ecs-service"
   cluster         = aws_ecs_cluster.wp-ecs.id
   task_definition = aws_ecs_task_definition.service.id
