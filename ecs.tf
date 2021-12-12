@@ -35,6 +35,7 @@ resource "aws_ecs_service" "wp-ecs-service" {
   desired_count   = 3
 
   load_balancer {
+    depends_on       = ["${aws_lb_listener.http-port}"]
     target_group_arn = aws_lb_target_group.wp-tg.id
     container_name   = "wp"
     container_port   = "80"
