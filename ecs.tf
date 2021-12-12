@@ -16,7 +16,7 @@ resource "aws_ecs_task_definition" "service" {
     "cpu": 2048,
     "memory": 1024,
     "essential": true
- portMappings": [
+    "portMappings": [
       {
         "containerPort": 80
       }
