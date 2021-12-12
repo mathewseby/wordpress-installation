@@ -6,15 +6,15 @@ resource "aws_ecs_task_definition" "service" {
   family                   = "service"
   network_mode             = "awsvpc"
   requires_compatibilities = ["FARGATE"]
-  cpu                      = 2048
-  memory                   = 1024
+  cpu                      = 1024
+  memory                   = 2048
   container_definitions    = <<TASK_DEFINITION
 [
   {
 	"name": "wp-service",
 	"image": "registry.hub.docker.com/library/wordpress:latest",
-	"cpu": 2048,
-	"memory": 1024,
+	"cpu": 1024,
+	"memory": 2048,
 	"essential": true,
 	"portMappings": [
   {
