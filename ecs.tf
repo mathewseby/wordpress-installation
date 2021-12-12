@@ -35,7 +35,7 @@ resource "aws_ecs_service" "wp-ecs-service" {
 
   load_balancer {
     target_group_arn = aws_lb_target_group.wp-tg.id
-    container_name   = "wp-container"
+    container_name   = "wp"
     container_port   = "80"
   }
 
