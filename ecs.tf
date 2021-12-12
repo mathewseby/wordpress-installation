@@ -29,13 +29,13 @@ resource "aws_ecs_task_definition" "service" {
 }
 
 resource "aws_ecs_service" "wp-ecs-service" {
+  depends_on      = ["${aws_lb_listener.http-port}"]
   name            = "wp-ecs-service"
   cluster         = aws_ecs_cluster.wp-ecs.id
   task_definition = aws_ecs_task_definition.service.id
   desired_count   = 3
 
   load_balancer {
-    depends_on       = ["${aws_lb_listener.http-port}"]
     target_group_arn = aws_lb_target_group.wp-tg.id
     container_name   = "wp"
     container_port   = "80"
