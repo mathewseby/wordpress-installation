@@ -13,9 +13,13 @@ resource "aws_ecs_task_definition" "service" {
   {
     "name": "wp-service",
     "image": "registry.hub.docker.com/library/wordpress:latest",
-    "cpu": 1024,
-    "memory": 2048,
+    "cpu": 2048,
+    "memory": 1024,
     "essential": true
+ portMappings": [
+      {
+        "containerPort": 80
+      }
   }
 ]
 TASK_DEFINITION
