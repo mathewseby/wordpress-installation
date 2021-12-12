@@ -11,7 +11,7 @@ resource "aws_ecs_task_definition" "service" {
   container_definitions    = <<TASK_DEFINITION
 [
   {
-	"name": "wp-service",
+	"name": "wp",
 	"image": "registry.hub.docker.com/library/wordpress:latest",
 	"cpu": 1024,
 	"memory": 2048,
