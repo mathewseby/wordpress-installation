@@ -25,3 +25,10 @@ resource "aws_lb_listener" "http-port" {
   }
 }
 
+resource "aws_lb_target_group" "wp-tg" {
+  name        = "wp-tg"
+  port        = 80
+  protocol    = "HTTP"
+  target_type = "ip"
+  vpc_id      = aws_vpc.vpc.id
+}
