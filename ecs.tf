@@ -3,9 +3,8 @@ resource "aws_ecs_cluster" "wp-ecs" {
 }
 
 resource "aws_ecs_task_definition" "service" {
-  family                   = "service"
-  network_mode             = "awsvpc"
-  requires_compatibilities = "FARGATE"
+  family       = "service"
+  network_mode = "awsvpc"
   container_definitions = jsonencode([
     {
       name      = "wp"
