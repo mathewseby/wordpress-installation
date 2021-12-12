@@ -1,5 +1,6 @@
 resource "aws_efs_file_system" "wp-efs" {
   creation_token = "wp-efs"
+  encrypted      = "true"
 }
 
 resource "aws_efs_access_point" "wp-efs-ap" {
