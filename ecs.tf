@@ -9,27 +9,32 @@ resource "aws_ecs_task_definition" "service" {
   cpu                      = 1024
   memory                   = 2048
   container_definitions    = <<TASK_DEFINITION
-[
-  {
+[{
 	"name": "wp",
 	"image": "registry.hub.docker.com/library/wordpress:latest",
 	"cpu": 1024,
 	"memory": 2048,
 	"essential": true,
-	"environment": [
-      {
-    "name": "WORDPRESS_DB_HOST", "value": "${one(aws_db_instance.wp-rds[*].endpoint)}",
-    "name": "WORDPRESS_DB_NAME", "value": "wordpress",
-    "name": "WORDPRESS_DB_PASSWORD", "value": "12345678",
-    "name": "WORDPRESS_DB_USER", "value": "wp-user"
-      }
-    "portMappings": [
-  {
+	"environment": [{
+			"name": "WORDPRESS_DB_HOST",
+			"value": "${one(aws_db_instance.wp-rds[*].endpoint)}"
+		}, {
+			"name": "WORDPRESS_DB_NAME",
+			"value": "wordpress"
+		},
+		{
+			"name": "WORDPRESS_DB_PASSWORD",
+			"value": "12345678"
+		},
+		{
+			"name": "WORDPRESS_DB_USER",
+			"value": "wp-user"
+		}
+	],
+	"portMappings": [{
 		"containerPort": 80
-	}
-                    ]
-  }
-]
+	}]
+}]
 TASK_DEFINITION
 
   volume {
