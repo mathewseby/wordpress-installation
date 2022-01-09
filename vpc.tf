@@ -9,7 +9,7 @@ resource "aws_subnet" "ec2-01" {
 }
 
 resource "aws_subnet" "ecs-01" {
-  count = var.install_type == "server_with_rds" || var.install_type == "with_docker_rds" || var.install_type == "ecs" ? 1 : 0
+  count      = var.install_type == "server_with_rds" || var.install_type == "with_docker_rds" || var.install_type == "ecs" ? 1 : 0
   cidr_block = "172.20.2.0/24"
   vpc_id     = aws_vpc.vpc.id
 }
