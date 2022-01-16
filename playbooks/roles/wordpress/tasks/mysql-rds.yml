@@ -9,6 +9,10 @@
     name: mysql-devel
     state: latest
 
+- name: Install pymysql
+  pip:
+    name: pymysql
+
 - name: Create wordpress database
   mysql_db:
     name: "{{ wpdb }}"
