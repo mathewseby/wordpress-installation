@@ -37,12 +37,12 @@ resource "aws_ecs_task_definition" "service" {
 }]
 TASK_DEFINITION
 
-  volume {
-    name = "wp-efs-mp"
-    efs_volume_configuration {
-      file_system_id = aws_efs_file_system.wp-efs.id
-    }
-  }
+  # volume {
+  #   name = "wp-efs-mp"
+  #   efs_volume_configuration {
+  #     file_system_id = aws_efs_file_system.wp-efs.id
+  #   }
+  # }
 }
 
 resource "aws_ecs_service" "wp-ecs-service" {
@@ -59,6 +59,7 @@ resource "aws_ecs_service" "wp-ecs-service" {
   }
 
   network_configuration {
+    assign_public_ip = true
     subnets = ["${one(aws_subnet.ecs-01[*].id)}", "${one(aws_subnet.ecs-02[*].id)}"
     ]
     security_groups = ["${one(aws_security_group.ecs-sg[*].id)}"
