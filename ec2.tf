@@ -36,7 +36,7 @@ resource "null_resource" "rds-server-provision" {
 resource "null_resource" "rds-nill-provision" {
   count = var.install_type == "server" || var.install_type == "docker" ? 1 : 0
   provisioner "local-exec" {
-    command = "sed -i 's/.*install_type: .*/   install_type: ${var.install_type}/g' playbooks/install-wordpress.yml ; sed -i 's/.*mysql_root_password: .*/mysql_root_password: ${var.mysql_root_password}/g' playbooks/roles/wordpress/defaults/main.yml ; ansible-playbook -i ${one(aws_instance.wp-instance[*].public_ip)}, -u ${var.ssh-user} playbooks/install-wordpress.yml ; sleep 30s ; curl -I ${aws_instance.wp-instance.public_ip}"
+    command = "sed -i 's/.*install_type: .*/   install_type: ${var.install_type}/g' playbooks/install-wordpress.yml ; sed -i 's/.*mysql_root_password: .*/mysql_root_password: ${var.mysql_root_password}/g' playbooks/roles/wordpress/defaults/main.yml ; ansible-playbook -i ${one(aws_instance.wp-instance[*].public_ip)}, -u ${var.ssh-user} playbooks/install-wordpress.yml ; sleep 30s ; curl -I ${one(aws_instance.wp-instance[*].public_ip)}"
   }
 }
 
