@@ -1,5 +1,6 @@
 resource "aws_ecs_cluster" "wp-ecs" {
-  name = "wp-ecs"
+  name       = "wp-ecs"
+  depends_on = [aws_instance.wp-instance]
 }
 
 resource "aws_ecs_task_definition" "service" {
