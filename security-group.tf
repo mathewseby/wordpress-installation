@@ -145,7 +145,7 @@ resource "aws_security_group_rule" "ecs-out" {
   from_port         = 80
   to_port           = 80
   protocol          = "tcp"
-  security_group_id = aws_security_group.ecs-sg.id
+  security_group_id = one(aws_security_group.ecs-sg[*].id)
   cidr_blocks       = ["0.0.0.0/0"]
 
 }
@@ -155,7 +155,7 @@ resource "aws_security_group_rule" "ecs-out-https" {
   from_port         = 443
   to_port           = 443
   protocol          = "tcp"
-  security_group_id = aws_security_group.ecs-sg.id
+  security_group_id = one(aws_security_group.ecs-sg[*].id)
   cidr_blocks       = ["0.0.0.0/0"]
 
 }
@@ -165,6 +165,6 @@ resource "aws_security_group_rule" "ecs-db-outbound" {
   from_port                = 3306
   to_port                  = 3306
   protocol                 = "tcp"
-  security_group_id        = aws_security_group.ecs-sg.id
+  security_group_id        = one(aws_security_group.ecs-sg[*].id)
   source_security_group_id = one(aws_security_group.db-sg[*].id)
 }
