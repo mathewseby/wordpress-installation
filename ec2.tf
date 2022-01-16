@@ -19,7 +19,7 @@ resource "aws_instance" "wp-instance" {
       type = "ssh"
       user = var.ssh-user
       #private_key = file(local.private_key_path)
-      host = aws_instance.wp-instance.public_ip
+      host = one(aws_instance.wp-instance[*].public_ip)
     }
 
   }
@@ -41,5 +41,5 @@ resource "null_resource" "rds-nill-provision" {
 }
 
 output "ec2_public-ip" {
-  value = aws_instance.wp-instance.public_ip
+  value = one(aws_instance.wp-instance[*].public_ip)
 }
