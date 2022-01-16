@@ -75,7 +75,7 @@ resource "aws_security_group_rule" "db-inbound-ecs" {
   to_port                  = 3306
   protocol                 = "tcp"
   security_group_id        = one(aws_security_group.db-sg[*].id)
-  source_security_group_id = aws_security_group.ecs-sg.id
+  source_security_group_id = one(aws_security_group.ecs-sg[*].id)
 
 }
 
