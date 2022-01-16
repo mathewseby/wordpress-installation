@@ -29,7 +29,7 @@ resource "aws_ecs_task_definition" "service" {
 		},
 		{
 			"name": "WORDPRESS_DB_USER",
-			"value": "wp-user"
+			"value": "root"
 		}
 	],
 	"portMappings": [{
