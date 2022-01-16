@@ -49,7 +49,7 @@ resource "aws_security_group" "db-sg" {
 }
 
 resource "aws_security_group_rule" "ec2-db-outbound" {
-  count                    = var.install_type == "server_with_rds" || var.install_type == "with_docker_rds" ? 1 : 0
+  count                    = var.install_type == "server_with_rds" || var.install_type == "with_docker_rds" || var.install_type == "ecs" ? 1 : 0
   type                     = "egress"
   from_port                = 3306
   to_port                  = 3306
@@ -59,7 +59,7 @@ resource "aws_security_group_rule" "ec2-db-outbound" {
 }
 
 resource "aws_security_group_rule" "db-inbound" {
-  count                    = var.install_type == "server_with_rds" || var.install_type == "with_docker_rds" ? 1 : 0
+  count                    = var.install_type == "server_with_rds" || var.install_type == "with_docker_rds" || var.install_type == "ecs" ? 1 : 0
   type                     = "ingress"
   from_port                = 3306
   to_port                  = 3306
