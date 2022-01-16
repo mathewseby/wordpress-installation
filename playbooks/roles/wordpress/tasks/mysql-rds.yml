@@ -4,6 +4,11 @@
     name: MySQL-python
     state: latest
 
+- name: Install mysqld python libary for Ansible
+  package:
+    name: mysql-devel
+    state: latest
+
 - name: Create wordpress database
   mysql_db:
     name: "{{ wpdb }}"
