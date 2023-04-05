@@ -21,15 +21,17 @@ resource "aws_subnet" "ecs-02" {
 }
 
 resource "aws_subnet" "eks-01" {
-  count      = var.install_type == "eks" ? 1 : 0
-  cidr_block = "172.20.4.0/24"
-  vpc_id     = aws_vpc.vpc.id
+  count             = var.install_type == "eks" ? 1 : 0
+  availability_zone = "ap-south-1a"
+  cidr_block        = "172.20.4.0/24"
+  vpc_id            = aws_vpc.vpc.id
 }
 
 resource "aws_subnet" "eks-02" {
-  count      = var.install_type == "eks" ? 1 : 0
-  cidr_block = "172.20.5.0/24"
-  vpc_id     = aws_vpc.vpc.id
+  count             = var.install_type == "eks" ? 1 : 0
+  availability_zone = "ap-south-1b"
+  cidr_block        = "172.20.5.0/24"
+  vpc_id            = aws_vpc.vpc.id
 }
 
 resource "aws_subnet" "efs-01" {
