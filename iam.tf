@@ -1,6 +1,6 @@
 resource "aws_iam_role" "eksclusterrole" {
   #count = var.install_type == "eks" ? 1 : 0
-  name  = "eksrole"
+  name = "eksrole"
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
     Statement = [
