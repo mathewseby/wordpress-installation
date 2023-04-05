@@ -27,6 +27,7 @@ resource "aws_lb_listener" "http-port" {
 }
 
 resource "aws_lb_target_group" "wp-tg" {
+  count       = var.install_type == "ecs" ? 1 : 0
   name        = "wp-tg"
   port        = 80
   protocol    = "HTTP"

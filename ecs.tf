@@ -1,9 +1,11 @@
 resource "aws_ecs_cluster" "wp-ecs" {
+  count      = var.install_type == "server_with_rds" || var.install_type == "with_docker_rds" || var.install_type == "ecs" ? 1 : 0
   name       = "wp-ecs"
   depends_on = [aws_instance.wp-instance]
 }
 
 resource "aws_ecs_task_definition" "service" {
+  count                    = var.install_type == "server_with_rds" || var.install_type == "with_docker_rds" || var.install_type == "ecs" ? 1 : 0
   family                   = "service"
   network_mode             = "awsvpc"
   requires_compatibilities = ["FARGATE"]
