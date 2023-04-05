@@ -5,7 +5,7 @@ resource "aws_db_instance" "wp-rds" {
   engine               = "mysql"
   engine_version       = "8.0"
   instance_class       = "db.t3.micro"
-  name                 = "wpdatabase"
+  db_name              = "wpdatabase"
   username             = "root"
   password             = var.mysql_root_password
   parameter_group_name = "default.mysql8.0"
