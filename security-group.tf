@@ -152,6 +152,7 @@ resource "aws_security_group_rule" "ecs-out" {
 }
 
 resource "aws_security_group_rule" "ecs-out-https" {
+  count             = var.install_type == "ecs" ? 1 : 0
   type              = "egress"
   from_port         = 443
   to_port           = 443
@@ -162,6 +163,7 @@ resource "aws_security_group_rule" "ecs-out-https" {
 }
 
 resource "aws_security_group_rule" "ecs-db-outbound" {
+  count                    = var.install_type == "ecs" ? 1 : 0
   type                     = "egress"
   from_port                = 3306
   to_port                  = 3306
