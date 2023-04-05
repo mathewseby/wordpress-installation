@@ -125,15 +125,17 @@ resource "aws_route_table_association" "public-05" {
   subnet_id      = one(aws_subnet.ecs-02[*].id)
 }
 resource "aws_route_table_association" "public-06" {
-  count          = var.install_type == "eks" ? 1 : 0
-  route_table_id = one(aws_route_table.public[*].id)
-  subnet_id      = one(aws_subnet.eks-01[*].id)
+  count                   = var.install_type == "eks" ? 1 : 0
+  map_public_ip_on_launch = true
+  route_table_id          = one(aws_route_table.public[*].id)
+  subnet_id               = one(aws_subnet.eks-01[*].id)
 }
 
 resource "aws_route_table_association" "public-07" {
-  count          = var.install_type == "eks" ? 1 : 0
-  route_table_id = one(aws_route_table.public[*].id)
-  subnet_id      = one(aws_subnet.eks-02[*].id)
+  count                   = var.install_type == "eks" ? 1 : 0
+  map_public_ip_on_launch = true
+  route_table_id          = one(aws_route_table.public[*].id)
+  subnet_id               = one(aws_subnet.eks-02[*].id)
 }
 
 resource "aws_route_table_association" "private-01" {
