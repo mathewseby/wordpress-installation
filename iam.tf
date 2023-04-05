@@ -20,6 +20,19 @@ resource "aws_iam_role" "eksclusterrole" {
 resource "aws_iam_role" "eksnoderole" {
   name                = "eksnoderole"
   managed_policy_arns = [data.aws_iam_policy.eksworker.arn, data.aws_iam_policy.containerregistry.arn, data.aws_iam_policy.ekscni.arn]
+  assume_role_policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Action = "sts:AssumeRole"
+        Effect = "Allow"
+        Sid    = ""
+        Principal = {
+          Service = "ec2.amazonaws.com"
+        }
+      },
+    ]
+  })
 }
 
 data "aws_iam_policy" "ekspolicy" {
