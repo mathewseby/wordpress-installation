@@ -1,4 +1,4 @@
-resource "aws_eks_cluster" "wp-eks" {
+resource "aws_eks_cluster" "wp_eks" {
   count    = var.install_type == "eks" ? 1 : 0
   name     = wp-eks
   role_arn = "aws_iam_role.eksclusterrole.arn"
