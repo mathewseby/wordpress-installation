@@ -141,7 +141,7 @@ resource "aws_security_group_rule" "efs-inbound" {
 }
 
 resource "aws_security_group_rule" "ecs-out" {
-  count                    = var.install_type == "ecs" ? 1 : 0
+  count             = var.install_type == "ecs" ? 1 : 0
   type              = "egress"
   from_port         = 80
   to_port           = 80
