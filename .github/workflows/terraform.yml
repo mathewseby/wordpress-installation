@@ -62,7 +62,7 @@ jobs:
     - name: Sleep for 30 seconds
       uses: jakejarvis/wait-action@master
       with:
-        time: '5m'
+        time: '30s'
     # terraform destroy
     - name: Terraform Destroy
       if: always()
