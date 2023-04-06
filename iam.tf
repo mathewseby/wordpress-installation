@@ -36,6 +36,53 @@ resource "aws_iam_role" "eksnoderole" {
   })
 }
 
+data "aws_iam_role" "ec2_eks_role" {
+  name = "ec2-eks-role"
+}
+
+resource "aws_iam_policy" "ec2_eks_policy" {
+  name   = "ec2-eks-policy"
+  policy = data.aws_iam_policy_document.ec2_eks_policy.json
+}
+
+resource "aws_iam_role_policy_attachment" "ec2_eks" {
+  role       = data.aws_iam_role.ec2_eks_role.name
+  policy_arn = aws_iam_policy.ec2_eks_policy.arn
+}
+
+data "aws_iam_policy_document" "ec2_eks_policy" {
+  statement {
+    effect = "Allow"
+
+    actions   = ["eks:*"]
+    resources = ["${one(aws_eks_cluster.wp_eks[*].arn)}"]
+  }
+
+  statement {
+    effect = "Allow"
+
+    actions = [
+      "iam:PassRole",
+    ]
+
+    condition {
+      test     = "StringEqualsIfExists"
+      variable = "iam:PassedToService"
+
+      values = [
+        "eks.amazonaws.com",
+      ]
+    }
+
+    resources = ["*"]
+  }
+}
+
+resource "aws_iam_instance_profile" "eks_ec2_profile" {
+  name = "eks-ec2-profile"
+  role = data.aws_iam_role.ec2_eks_role.name
+}
+
 data "aws_iam_policy" "ekspolicy" {
   arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
 }
