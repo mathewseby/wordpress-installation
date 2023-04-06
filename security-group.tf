@@ -49,7 +49,7 @@ resource "aws_security_group" "db-sg" {
 }
 
 resource "aws_security_group_rule" "ec2-db-outbound" {
-  count                    = var.install_type == "server_with_rds" || var.install_type == "with_docker_rds" || var.install_type == "ecs" ? 1 : 0
+  count                    = var.install_type == "server_with_rds" || var.install_type == "with_docker_rds" || var.install_type == "eks" ? 1 : 0
   type                     = "egress"
   from_port                = 3306
   to_port                  = 3306
@@ -59,7 +59,7 @@ resource "aws_security_group_rule" "ec2-db-outbound" {
 }
 
 resource "aws_security_group_rule" "db-inbound" {
-  count                    = var.install_type == "server_with_rds" || var.install_type == "with_docker_rds" || var.install_type == "ecs" ? 1 : 0
+  count                    = var.install_type == "server_with_rds" || var.install_type == "with_docker_rds" || var.install_type == "eks" ? 1 : 0
   type                     = "ingress"
   from_port                = 3306
   to_port                  = 3306
@@ -68,8 +68,8 @@ resource "aws_security_group_rule" "db-inbound" {
   source_security_group_id = aws_security_group.ec2_sg.id
 }
 
-resource "aws_security_group_rule" "db-inbound-ecs" {
-  count                    = var.install_type == "server_with_rds" || var.install_type == "with_docker_rds" || var.install_type == "ecs" ? 1 : 0
+resource "aws_security_group_rule" "db-inbound-eks" {
+  count                    = var.install_type == "server_with_rds" || var.install_type == "with_docker_rds" || var.install_type == "eks" ? 1 : 0
   type                     = "ingress"
   from_port                = 3306
   to_port                  = 3306
@@ -162,8 +162,8 @@ resource "aws_security_group_rule" "ecs-out-https" {
 
 }
 
-resource "aws_security_group_rule" "ecs-db-outbound" {
-  count                    = var.install_type == "ecs" ? 1 : 0
+resource "aws_security_group_rule" "eks-db-outbound" {
+  count                    = var.install_type == "eks" ? 1 : 0
   type                     = "egress"
   from_port                = 3306
   to_port                  = 3306
