@@ -164,6 +164,6 @@ resource "aws_route_table_association" "private-04" {
 }
 
 resource "aws_db_subnet_group" "db" {
-  count      = var.install_type == "server_with_rds" || var.install_type == "with_docker_rds" || var.install_type == "ecs" ? 1 : 0
+  count      = var.install_type == "server_with_rds" || var.install_type == "with_docker_rds" || var.install_type == "eks" ? 1 : 0
   subnet_ids = [one(aws_subnet.db-02[*].id), one(aws_subnet.db-01[*].id)]
 }
