@@ -1,6 +1,6 @@
 resource "aws_iam_role" "eksclusterrole" {
-  #count = var.install_type == "eks" ? 1 : 0
-  name = "eksrole"
+  count = var.install_type == "eks" ? 1 : 0
+  name  = "eksrole"
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
     Statement = [
@@ -18,6 +18,7 @@ resource "aws_iam_role" "eksclusterrole" {
 }
 
 resource "aws_iam_role" "eksnoderole" {
+  count               = var.install_type == "eks" ? 1 : 0
   name                = "eksnoderole"
   managed_policy_arns = [data.aws_iam_policy.eksworker.arn, data.aws_iam_policy.containerregistry.arn, data.aws_iam_policy.ekscni.arn]
   assume_role_policy = jsonencode({

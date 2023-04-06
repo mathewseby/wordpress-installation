@@ -25,31 +25,17 @@ resource "aws_subnet" "eks-02" {
 }
 
 resource "aws_subnet" "db-01" {
-  count             = var.install_type == "server_with_rds" || var.install_type == "with_docker_rds" || var.install_type == "ecs" || var.install_type == "eks" ? 1 : 0
+  count             = var.install_type == "server_with_rds" || var.install_type == "with_docker_rds" || var.install_type == "eks" ? 1 : 0
   cidr_block        = "172.20.6.0/24"
   vpc_id            = aws_vpc.vpc.id
   availability_zone = "ap-south-1a"
 }
 
 resource "aws_subnet" "db-02" {
-  count             = var.install_type == "server_with_rds" || var.install_type == "with_docker_rds" || var.install_type == "ecs" || var.install_type == "eks" ? 1 : 0
+  count             = var.install_type == "server_with_rds" || var.install_type == "with_docker_rds" || var.install_type == "eks" ? 1 : 0
   cidr_block        = "172.20.7.0/24"
   vpc_id            = aws_vpc.vpc.id
   availability_zone = "ap-south-1c"
-}
-
-resource "aws_subnet" "lb-01" {
-  count             = var.install_type == "ecs" ? 1 : 0
-  cidr_block        = "172.20.8.0/24"
-  availability_zone = "ap-south-1a"
-  vpc_id            = aws_vpc.vpc.id
-}
-
-resource "aws_subnet" "lb-02" {
-  count             = var.install_type == "ecs" ? 1 : 0
-  cidr_block        = "172.20.9.0/24"
-  availability_zone = "ap-south-1b"
-  vpc_id            = aws_vpc.vpc.id
 }
 
 resource "aws_internet_gateway" "igw" {
@@ -61,7 +47,7 @@ resource "aws_route_table" "public" {
 }
 
 resource "aws_route_table" "private" {
-  count  = var.install_type == "server_with_rds" || var.install_type == "with_docker_rds" || var.install_type == "ecs" ? 1 : 0
+  count  = var.install_type == "server_with_rds" || var.install_type == "with_docker_rds" || var.install_type == "eks" ? 1 : 0
   vpc_id = aws_vpc.vpc.id
 }
 
@@ -74,20 +60,6 @@ resource "aws_route" "igw-assoc" {
 resource "aws_route_table_association" "public-01" {
   route_table_id = aws_route_table.public.id
   subnet_id      = aws_subnet.ec2-01.id
-
-}
-
-resource "aws_route_table_association" "public-02" {
-  count          = var.install_type == "ecs" ? 1 : 0
-  route_table_id = aws_route_table.public.id
-  subnet_id      = one(aws_subnet.lb-01[*].id)
-
-}
-
-resource "aws_route_table_association" "public-03" {
-  count          = var.install_type == "ecs" ? 1 : 0
-  route_table_id = aws_route_table.public.id
-  subnet_id      = one(aws_subnet.lb-02[*].id)
 
 }
 
@@ -104,14 +76,14 @@ resource "aws_route_table_association" "public-07" {
 }
 
 resource "aws_route_table_association" "private-01" {
-  count          = var.install_type == "server_with_rds" || var.install_type == "with_docker_rds" || var.install_type == "ecs" ? 1 : 0
+  count          = var.install_type == "server_with_rds" || var.install_type == "with_docker_rds" || var.install_type == "eks" ? 1 : 0
   route_table_id = one(aws_route_table.private[*].id)
   subnet_id      = one(aws_subnet.db-01[*].id)
 
 }
 
 resource "aws_route_table_association" "private-02" {
-  count          = var.install_type == "server_with_rds" || var.install_type == "with_docker_rds" || var.install_type == "ecs" ? 1 : 0
+  count          = var.install_type == "server_with_rds" || var.install_type == "with_docker_rds" || var.install_type == "eks" ? 1 : 0
   route_table_id = one(aws_route_table.private[*].id)
   subnet_id      = one(aws_subnet.db-02[*].id)
 }
