@@ -87,7 +87,7 @@ resource "aws_security_group" "eks-sg" {
   vpc_id      = aws_vpc.vpc.id
 }
 
-resource "aws_security_group_rule" "eks-inbound" {
+resource "aws_security_group_rule" "eks-inbound-http" {
   count             = var.install_type == "eks" ? 1 : 0
   type              = "ingress"
   from_port         = 80
@@ -97,7 +97,7 @@ resource "aws_security_group_rule" "eks-inbound" {
   cidr_blocks       = ["0.0.0.0/0"]
 }
 
-resource "aws_security_group_rule" "eks-inbound" {
+resource "aws_security_group_rule" "eks-inbound-https" {
   count             = var.install_type == "eks" ? 1 : 0
   type              = "ingress"
   from_port         = 443
