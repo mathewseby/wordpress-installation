@@ -10,7 +10,7 @@ resource "aws_eks_cluster" "wp_eks" {
 }
 
 resource "aws_eks_node_group" "wp-eks-nodes" {
-  cluster_name    = aws_eks_cluster.wp_eks.name
+  cluster_name    = one(aws_eks_cluster.wp_eks[*].name)
   node_group_name = "wp-nodegroup"
   node_role_arn   = aws_iam_role.eksnoderole.arn
   subnet_ids      = ["${one(aws_subnet.eks-01[*].id)}", "${one(aws_subnet.eks-02[*].id)}"]
