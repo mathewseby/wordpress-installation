@@ -25,5 +25,5 @@ kubectl_version: v1.26.0
 kubectl_path: /usr/local/bin/kubectl
 kubectl_binary_path: /usr/local/bin/kubectl-{{ kubectl_version }}
 kubectl_url: "https://dl.k8s.io/release/{{ kubectl_version }}/bin/linux/amd64/kubectl"
-kubectl_checksum_sha256: 026c8412d373064ab0359ed0d1a25c975e9ce803a093d76c8b30c5996ad73e75
+kubectl_checksum_sha256: b6769d8ac6a0ed0f13b307d289dc092ad86180b08f5b5044af152808c04950ae
 python_package: ['kubernetes', 'openshift', 'kubernetes-validate']
