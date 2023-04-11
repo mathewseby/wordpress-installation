@@ -1,0 +1,116 @@
+- name: Check the installed kubectl
+  stat:
+    path: "{{ kubectl_binary_path }}"
+  changed_when: false
+  register: kubectl_binary_result
+
+- name: Download and install binary on the admin server
+  get_url:
+    url: "{{ kubectl_url }}"
+    dest: "{{ kubectl_binary_path }}"
+    checksum: "sha256:{{ kubectl_checksum_sha256 }}"
+    mode: 0755
+  when: not kubectl_binary_result.stat.exists
+
+- name: Create kubectl symlink
+  file:
+    src: "{{ kubectl_binary_path }}"
+    path: "{{ kubectl_path }}"
+    force: yes
+    state: link
+
+- name: Create kubectl config folder
+  become: no
+  file:
+    path: "/home/{{ ansible_user }}/.kube"
+    state: directory
+    mode: 0755
+
+- name: Copy the kube_config into kubectl bastion
+  become: no
+  copy:
+    src: "{{ kubectl_local_config_directory }}"
+    dest: "/home/{{ ansible_user }}/.kube/config"
+    mode: 0600
+
+- name: Check if kubectl completion exists on admin server
+  stat:
+    path: /etc/bash_completion.d/kubectl
+  register: stat_bash_kubectl_result
+
+- name: Install kubectl completion
+  shell: "{{ kubectl_path }} completion bash > /etc/bash_completion.d/kubectl"
+  when: not stat_bash_kubectl_result.stat.exists
+
+- name: Install python library requirements for kubernetes
+  pip:
+    name: "{{ python_package }}"
+    extra_args: "--ignore-installed pyyaml"
+
+- name: Check the installed helm
+  stat:
+    path: "{{ helm_binary_path }}"
+  changed_when: false
+  register: helm_binary_result
+
+- name: Download and install helm binary
+  block:
+    - name: Download {{ helm_url }}
+      get_url:
+        url: "{{ helm_url }}"
+        dest: /tmp/{{ helm_archive }}
+        checksum: "sha256:{{ helm_checksum_sha256 }}"
+        mode: 0644
+      register: download_result
+      until: download_result is succeeded
+      retries: 3
+
+    - name: Unarchive the helm tar
+      unarchive:
+        src: /tmp/{{ helm_archive }}
+        dest: /tmp
+        remote_src: yes
+        mode: 0644
+
+    - name: Copy helm binary to $PATH
+      copy:
+        src: /tmp/linux-amd64/helm
+        dest: "{{ helm_binary_path }}"
+        mode: 0755
+        remote_src: yes
+  always:
+    - name: Clean {{ helm_archive }}
+      file:
+        path: "/tmp/{{ item }}"
+        state: absent
+      loop:
+        - "{{ helm_archive }}"
+        - linux-amd64
+  when: not helm_binary_result.stat.exists
+
+- name: Create helm symlink
+  file:
+    src: "{{ helm_binary_path }}"
+    path: "{{ helm_path }}"
+    force: yes
+    state: link
+
+- name: Install Git
+  package:
+    name: git
+    state: present
+  register: install_git_result
+  until: install_git_result is succeeded
+  retries: 3
+  delay: 5
+  become: yes
+  when: helm_plugins | default([]) | length > 0
+
+- name: Install helm plugins
+  kubernetes.core.helm_plugin:
+    state: present
+    plugin_path: "{{ item }}"
+    binary_path: "{{ helm_path }}"
+  loop: "{{ helm_plugins }}"
+  become_user: "{{ ansible_user }}"
+

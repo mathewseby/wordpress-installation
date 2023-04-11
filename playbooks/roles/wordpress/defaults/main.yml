@@ -7,3 +7,23 @@ dbuser: wp-user
 wpdb: wordpress
 install_type: server
 rdshost: localhost
+
+# helm defaults
+helm_version: v3.5.2
+helm_path: /usr/local/bin/helm
+helm_binary_path: "{{ helm_path }}-{{ helm_version }}"
+helm_archive: helm-{{ helm_version }}-linux-amd64.tar.gz
+helm_url: https://get.helm.sh/{{ helm_archive }}
+helm_checksum_sha256: 01b317c506f8b6ad60b11b1dc3f093276bb703281cb1ae01132752253ec706a2
+helm_plugins:
+  - https://github.com/databus23/helm-diff
+
+# kubectl defaults
+base_local_directory: ../conf
+kubectl_local_config_directory: "{{ base_local_directory }}/kube_config"
+kubectl_version: v1.26.0
+kubectl_path: /usr/local/bin/kubectl
+kubectl_binary_path: /usr/local/bin/kubectl-{{ kubectl_version }}
+kubectl_url: "https://dl.k8s.io/release/{{ kubectl_version }}/bin/linux/amd64/kubectl"
+kubectl_checksum_sha256: dbacc1a372f00e2d15ad9a39925191c4e314e39b37dcac3e5b2f5e98f4be0d47
+python_package: ['kubernetes', 'openshift', 'kubernetes-validate']
