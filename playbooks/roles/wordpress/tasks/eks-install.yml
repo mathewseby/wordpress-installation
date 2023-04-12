@@ -112,7 +112,7 @@
     plugin_path: "{{ item }}"
     binary_path: "{{ helm_path }}"
   loop: "{{ helm_plugins }}"
-  become_user: "{{ ansible_user }}"
+  become_user: ec2-user
 
 - name: Install awscli
   pip:
