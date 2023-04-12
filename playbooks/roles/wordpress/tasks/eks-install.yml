@@ -26,12 +26,12 @@
     state: directory
     mode: 0755
 
-- name: Copy the kube_config into kubectl bastion
-  become: no
-  copy:
-    src: "{{ kubectl_local_config_directory }}"
-    dest: "/home/{{ ansible_user }}/.kube/config"
-    mode: 0600
+#- name: Copy the kube_config into kubectl bastion
+#  become: no
+#  copy:
+#    src: "{{ kubectl_local_config_directory }}"
+#    dest: "/home/{{ ansible_user }}/.kube/config"
+#    mode: 0600
 
 - name: Check if kubectl completion exists on admin server
   stat:
@@ -114,3 +114,30 @@
   loop: "{{ helm_plugins }}"
   become_user: "{{ ansible_user }}"
 
+- name: Install awscli
+  pip:
+    name: awscli
+    state: present
+    executable: pip3
+
+- name: Create eks login
+  shell: aws eks update-kubeconfig --region region-code --name "{{ cluster_name }}"
+  environment:
+     AWS_ACCESS_KEY: AKIAUCGMHPRLT4ND374D
+     AWS_SECRET_ACCESS_KEY: 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
+     AWS_DEFAULT_REGION: ap-south-1
+
+- name: Install Helm Diff
+  kubernetes.core.helm_plugin:
+    state: present
+    plugin_path: https://github.com/databus23/helm-diff
+
+- name: Add wordpress charts repo
+  kubernetes.core.helm_repository:
+    name: wordpress
+    repo_url: https://charts.bitnami.com/bitnami
+
+- name: Deploy wordpress
+  kubernetes.core.helm:
+    name: wordpress
+    chart_ref: bitnami/wordpress
