@@ -121,7 +121,7 @@
     executable: pip3
 
 - name: Create eks login
-  shell: aws eks update-kubeconfig --region region-code --name wp-eks
+  shell: aws eks update-kubeconfig --region ap-south-1 --name wp-eks
   environment:
      AWS_ACCESS_KEY: AKIAUCGMHPRLT4ND374D
      AWS_SECRET_ACCESS_KEY: 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
