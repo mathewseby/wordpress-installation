@@ -3,3 +3,8 @@ variable "security_group_ids" {
   type        = list(string)
   default     = null
 }
+
+variable "resource_type" {
+  type        = string
+  description = "The resource type of the bastion instance"
+}

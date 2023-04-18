@@ -1,7 +1,7 @@
 module "wp-ec2" {
-  source                 = "./modules/ec2"
-  instance_type          = "t3a.medium"
-  vpc_security_group_ids = [aws_security_group.ec2_sg.id]
+  source             = "./modules/ec2"
+  resource_type      = "t3a.medium"
+  security_group_ids = [aws_security_group.ec2_sg.id]
 }
 
 #resource "aws_instance" "wp-instance" {
