@@ -13,3 +13,13 @@ variable "instance_ami" {
   type        = string
   description = "The image id to initiate"
 }
+
+variable "instance_key_name" {
+  type        = string
+  description = "The image id to initiate"
+}
+
+variable "subnet" {
+  type        = string
+  description = "The image id to initiate"
+}
