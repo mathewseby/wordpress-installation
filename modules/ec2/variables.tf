@@ -8,8 +8,3 @@ variable "resource_type" {
   type        = string
   description = "The resource type of the bastion instance"
 }
-
-variable "instance-ami" {
-  type        = string
-  description = "The image id to initiate"
-}

@@ -2,7 +2,6 @@ module "wp-ec2" {
   source             = "./modules/ec2"
   resource_type      = "t3a.medium"
   security_group_ids = [aws_security_group.ec2_sg.id]
-  instance-ami       = var.instance-ami
 }
 
 #resource "aws_instance" "wp-instance" {
