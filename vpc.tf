@@ -64,3 +64,27 @@ resource "aws_db_subnet_group" "db" {
   count      = var.install_type == "server_with_rds" || var.install_type == "with_docker_rds" ? 1 : 0
   subnet_ids = [one(aws_subnet.db-02[*].id), one(aws_subnet.db-01[*].id)]
 }
+
+resource "aws_subnet" "eks-01" {
+  availability_zone       = "ap-south-1a"
+  map_public_ip_on_launch = true
+  cidr_block              = "172.20.4.0/24"
+  vpc_id                  = aws_vpc.vpc.id
+}
+
+resource "aws_subnet" "eks-02" {
+  availability_zone       = "ap-south-1b"
+  map_public_ip_on_launch = true
+  cidr_block              = "172.20.5.0/24"
+  vpc_id                  = aws_vpc.vpc.id
+}
+
+resource "aws_route_table_association" "public-06" {
+  route_table_id = one(aws_route_table.public[*].id)
+  subnet_id      = one(aws_subnet.eks-01[*].id)
+}
+
+resource "aws_route_table_association" "public-07" {
+  route_table_id = one(aws_route_table.public[*].id)
+  subnet_id      = one(aws_subnet.eks-02[*].id)
+}
