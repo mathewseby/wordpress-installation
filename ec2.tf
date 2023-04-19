@@ -6,7 +6,7 @@ module "wp-ec2" {
   instance_ami       = var.instance_ami
   instance_key_name  = var.instance_key_name
   subnet             = aws_subnet.ec2-01.id
-  vpc_id = aws_vpc.vpc.id
+  vpc_id             = aws_vpc.vpc.id
 }
 
 #resource "aws_instance" "wp-instance" {
