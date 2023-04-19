@@ -37,7 +37,7 @@ variable "vpc_id" {
 variable "internal_domain" {
   type        = string
   description = "The network ID to create DNS zone"
-  default = "mathewseby.local"
+  default     = "mathewseby.local"
 }
 
 #variable "server_private_ip" {

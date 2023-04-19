@@ -1,5 +1,5 @@
 resource "aws_instance" "wp" {
-  name = var.name
+  name                   = var.name
   ami                    = var.instance_ami
   key_name               = var.instance_key_name
   subnet_id              = var.subnet
@@ -22,6 +22,6 @@ resource "aws_route53_record" "server_dns" {
   name    = aws_instance.wp.name
   type    = "A"
   zone_id = aws_route53_zone.private.zone_id
-  ttl = "300"
+  ttl     = "300"
   records = aws_instance.wp.private_ip
 }
