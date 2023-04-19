@@ -23,3 +23,23 @@ variable "subnet" {
   type        = string
   description = "The image id to initiate"
 }
+
+variable "name" {
+  type        = string
+  description = "The image id to initiate"
+}
+
+variable "vpc_id" {
+  type        = string
+  description = "The network ID to create DNS zone"
+}
+
+variable "internal_domain" {
+  type        = string
+  description = "The network ID to create DNS zone"
+  default = "mathewseby.local"
+}
+
+#variable "server_private_ip" {
+#  type = list(string)
+#}
