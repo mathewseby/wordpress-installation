@@ -27,6 +27,7 @@ variable "subnet" {
 variable "name" {
   type        = string
   description = "The image id to initiate"
+  default     = "wpec2"
 }
 
 variable "vpc_id" {
