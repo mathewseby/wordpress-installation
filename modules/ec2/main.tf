@@ -22,5 +22,5 @@ resource "aws_route53_record" "server_dns" {
   type    = "A"
   zone_id = aws_route53_zone.private.zone_id
   ttl     = "300"
-  records = aws_instance.wp.private_ip
+  records = [aws_instance.wp.private_ip]
 }
