@@ -73,6 +73,20 @@ resource "aws_subnet" "eks-02" {
   vpc_id                  = aws_vpc.vpc.id
 }
 
+resource "aws_subnet" "eks-03" {
+  cidr_block              = "172.20.6.0/24"
+  vpc_id                  = aws_vpc.vpc.id
+  map_public_ip_on_launch = true
+  availability_zone       = "ap-south-1a"
+}
+
+resource "aws_subnet" "eks-04" {
+  cidr_block              = "172.20.7.0/24"
+  vpc_id                  = aws_vpc.vpc.id
+  map_public_ip_on_launch = true
+  availability_zone       = "ap-south-1b"
+}
+
 resource "aws_route_table_association" "public-06" {
   route_table_id = aws_route_table.public.id
   subnet_id      = aws_subnet.eks-01.id
@@ -81,4 +95,14 @@ resource "aws_route_table_association" "public-06" {
 resource "aws_route_table_association" "public-07" {
   route_table_id = aws_route_table.public.id
   subnet_id      = aws_subnet.eks-02.id
+}
+
+resource "aws_route_table_association" "public-08" {
+  route_table_id = aws_route_table.public.id
+  subnet_id      = aws_subnet.eks-03.id
+}
+
+resource "aws_route_table_association" "public-09" {
+  route_table_id = aws_route_table.public.id
+  subnet_id      = aws_subnet.eks-04.id
 }
