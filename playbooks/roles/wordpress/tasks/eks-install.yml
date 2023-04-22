@@ -142,3 +142,4 @@
   kubernetes.core.helm:
     name: wordpress
     chart_ref: bitnami/wordpress
+    release_namespace: default
