@@ -75,7 +75,7 @@
     - name: Copy helm binary to $PATH
       copy:
         src: /tmp/linux-amd64/helm
-        dest: "{{ helm_binary_path }}"
+        dest: "{{ helm_path }}"
         mode: 0755
         remote_src: yes
   always:
@@ -88,12 +88,12 @@
         - linux-amd64
   when: not helm_binary_result.stat.exists
 
-- name: Create helm symlink
-  file:
-    src: "{{ helm_binary_path }}"
-    path: "{{ helm_path }}"
-    force: yes
-    state: link
+# - name: Create helm symlink
+#   file:
+#     src: "{{ helm_binary_path }}"
+#     path: "{{ helm_path }}"
+#     force: yes
+#     state: link
 
 - name: Install Git
   package:
