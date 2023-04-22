@@ -88,12 +88,12 @@
         - linux-amd64
   when: not helm_binary_result.stat.exists
 
-# - name: Create helm symlink
-#   file:
-#     src: "{{ helm_binary_path }}"
-#     path: "{{ helm_path }}"
-#     force: yes
-#     state: link
+- name: Create helm symlink
+  file:
+    src: "{{ helm_path }}"
+    path: "/usr/local/sbin/helm"
+    force: yes
+    state: link
 
 - name: Install Git
   package:
@@ -121,6 +121,7 @@
     executable: pip3
 
 - name: Create eks login
+  become: no
   shell: aws eks update-kubeconfig --region ap-south-1 --name wp-eks
   environment:
      AWS_ACCESS_KEY_ID: AKIAUCGMHPRLT4ND374D
