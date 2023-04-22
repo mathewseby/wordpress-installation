@@ -1,4 +1,4 @@
-instance_key_name   = "wp-test-instance"
+instance_key_name   = "wp-test.pem"
 ssh-user            = "ec2-user"
 private_key_path    = "/home/mathew/Downloads/wp-test-instance.pem"
 instance-type       = "t3.micro"
