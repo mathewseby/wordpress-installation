@@ -134,11 +134,13 @@
     plugin_path: https://github.com/databus23/helm-diff
 
 - name: Add wordpress charts repo
+  become: no
   kubernetes.core.helm_repository:
     name: wordpress
     repo_url: https://charts.bitnami.com/bitnami
 
 - name: Deploy wordpress
+  become: no
   kubernetes.core.helm:
     name: wordpress
     chart_ref: bitnami/wordpress
