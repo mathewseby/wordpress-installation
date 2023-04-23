@@ -31,7 +31,7 @@ resource "null_resource" "eks-rds-nill" {
   count      = var.install_type == "eks" ? 1 : 0
   depends_on = [module.eks]
   provisioner "local-exec" {
-    command = "export ANSIBLE_HOST_KEY_CHECKING=False ; echo install_type: ${var.install_type} ; ansible-playbook -i ${one(aws_instance.wp-instance[*].public_ip)}, -u ${var.ssh-user} -e @extra_vars.yml playbooks/install-wordpress.yml"
+    command = "export ANSIBLE_HOST_KEY_CHECKING=False ; echo install_type: ${var.install_type} >> extra-vars.yml ; ansible-playbook -i ${one(aws_instance.wp-instance[*].public_ip)}, -u ${var.ssh-user} -e @extra_vars.yml playbooks/install-wordpress.yml"
   }
 }
 
