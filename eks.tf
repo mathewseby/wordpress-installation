@@ -30,7 +30,7 @@ module "eks" {
   cluster_name                   = "wp-eks"
   cluster_version                = "1.25"
   cluster_endpoint_public_access = true
-  create_kms_key                 = false
+  #create_kms_key                 = false
 
   cluster_addons = {
     coredns = {
