@@ -26,7 +26,7 @@ resource "aws_subnet" "eks-02" {
 
 resource "aws_subnet" "eks-03" {
   count                   = var.install_type == "eks" ? 1 : 0
-  availability_zone       = "ap-south-1b"
+  availability_zone       = "ap-south-1a"
   map_public_ip_on_launch = true
   cidr_block              = "172.20.6.0/24"
   vpc_id                  = aws_vpc.vpc.id
