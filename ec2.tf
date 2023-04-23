@@ -31,6 +31,7 @@ resource "null_resource" "eks-rds-provision" {
   count      = var.install_type == "eks_rds" ? 1 : 0
   depends_on = [module.eks]
   provisioner "local-exec" {
+    #command = "export ANSIBLE_HOST_KEY_CHECKING=False ; echo install_type: ${var.install_type} >> extra_vars.yml ; echo mysql_root_password: ${var.mysql_root_password}; echo rdshost:; echo ansible-playbook -i ${one(aws_instance.wp-instance[*].public_ip)}, -u ${var.ssh-user} --extra-vars "install_type=eks mysql_root_password=var.mysql_root_password rdshost=one(aws_db_instance.wp-rds[*].endpoint)" playbooks/install-wordpress.yml"
     command = "export ANSIBLE_HOST_KEY_CHECKING=False ; sed -i 's/.*install_type: .*/   install_type: ${var.install_type}/g' playbooks/install-wordpress.yml ; sed -i 's/.*mysql_root_password: .*/mysql_root_password: ${var.mysql_root_password}/g' playbooks/roles/wordpress/defaults/main.yml ; sed -i 's/.*rdshost: .*/rdshost: ${one(aws_db_instance.wp-rds[*].endpoint)}/g' playbooks/roles/wordpress/defaults/main.yml ; sed -i 's/:3306//g' playbooks/roles/wordpress/defaults/main.yml ; ansible-playbook -i ${one(aws_instance.wp-instance[*].public_ip)}, -u ${var.ssh-user} playbooks/install-wordpress.yml"
   }
 }
@@ -45,7 +46,7 @@ resource "null_resource" "rds-server-provision" {
 resource "null_resource" "rds-nill-provision" {
   count = var.install_type == "server" || var.install_type == "docker" || var.install_type == "eks" ? 1 : 0
   provisioner "local-exec" {
-    command = "sed -i 's/.*install_type: .*/   install_type: ${var.install_type}/g' playbooks/install-wordpress.yml ; sed -i 's/.*mysql_root_password: .*/mysql_root_password: ${var.mysql_root_password}/g' playbooks/roles/wordpress/defaults/main.yml ; ansible-playbook -i ${one(aws_instance.wp-instance[*].public_ip)}, -u ${var.ssh-user} playbooks/install-wordpress.yml ; sleep 30s ; curl -I ${one(aws_instance.wp-instance[*].public_ip)}"
+    command = "export ANSIBLE_HOST_KEY_CHECKING=False ; sed -i 's/.*install_type: .*/   install_type: ${var.install_type}/g' playbooks/install-wordpress.yml ; sed -i 's/.*mysql_root_password: .*/mysql_root_password: ${var.mysql_root_password}/g' playbooks/roles/wordpress/defaults/main.yml ; ansible-playbook -i ${one(aws_instance.wp-instance[*].public_ip)}, -u ${var.ssh-user} playbooks/install-wordpress.yml ; sleep 30s ; curl -I ${one(aws_instance.wp-instance[*].public_ip)}"
   }
 }
 
