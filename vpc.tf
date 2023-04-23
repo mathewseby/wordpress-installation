@@ -42,14 +42,14 @@ resource "aws_subnet" "eks-04" {
 
 resource "aws_subnet" "db-01" {
   count             = var.install_type == "server_with_rds" || var.install_type == "with_docker_rds" || var.install_type == "eks" ? 1 : 0
-  cidr_block        = "172.20.6.0/24"
+  cidr_block        = "172.20.8.0/24"
   vpc_id            = aws_vpc.vpc.id
   availability_zone = "ap-south-1a"
 }
 
 resource "aws_subnet" "db-02" {
   count             = var.install_type == "server_with_rds" || var.install_type == "with_docker_rds" || var.install_type == "eks" ? 1 : 0
-  cidr_block        = "172.20.7.0/24"
+  cidr_block        = "172.20.9.0/24"
   vpc_id            = aws_vpc.vpc.id
   availability_zone = "ap-south-1c"
 }
