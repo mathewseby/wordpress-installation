@@ -24,6 +24,22 @@ resource "aws_subnet" "eks-02" {
   vpc_id                  = aws_vpc.vpc.id
 }
 
+resource "aws_subnet" "eks-03" {
+  count                   = var.install_type == "eks" ? 1 : 0
+  availability_zone       = "ap-south-1b"
+  map_public_ip_on_launch = true
+  cidr_block              = "172.20.6.0/24"
+  vpc_id                  = aws_vpc.vpc.id
+}
+
+resource "aws_subnet" "eks-04" {
+  count                   = var.install_type == "eks" ? 1 : 0
+  availability_zone       = "ap-south-1b"
+  map_public_ip_on_launch = true
+  cidr_block              = "172.20.7.0/24"
+  vpc_id                  = aws_vpc.vpc.id
+}
+
 resource "aws_subnet" "db-01" {
   count             = var.install_type == "server_with_rds" || var.install_type == "with_docker_rds" || var.install_type == "eks" ? 1 : 0
   cidr_block        = "172.20.6.0/24"
@@ -73,6 +89,18 @@ resource "aws_route_table_association" "public-07" {
   count          = var.install_type == "eks" ? 1 : 0
   route_table_id = one(aws_route_table.public[*].id)
   subnet_id      = one(aws_subnet.eks-02[*].id)
+}
+
+resource "aws_route_table_association" "public-08" {
+  count          = var.install_type == "eks" ? 1 : 0
+  route_table_id = one(aws_route_table.public[*].id)
+  subnet_id      = one(aws_subnet.eks-03[*].id)
+}
+
+resource "aws_route_table_association" "public-09" {
+  count          = var.install_type == "eks" ? 1 : 0
+  route_table_id = one(aws_route_table.public[*].id)
+  subnet_id      = one(aws_subnet.eks-04[*].id)
 }
 
 resource "aws_route_table_association" "private-01" {
