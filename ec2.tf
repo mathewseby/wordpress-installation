@@ -1,16 +1,16 @@
-module "wp-ec2" {
-  name               = "wpec2"
-  source             = "./modules/ec2"
-  resource_type      = "t3a.medium"
-  security_group_ids = [aws_security_group.ec2_sg.id]
-  instance_ami       = var.instance_ami
-  instance_key_name  = var.instance_key_name
-  subnet             = aws_subnet.ec2-01.id
-  vpc_id             = aws_vpc.vpc.id
-}
+#module "wp-ec2" {
+#  name               = "wpec2"
+#  source             = "./modules/ec2"
+#  resource_type      = "t3a.medium"
+#  security_group_ids = [aws_security_group.ec2_sg.id]
+#  instance_ami       = var.instance_ami
+#  instance_key_name  = var.instance_key_name
+#  subnet             = aws_subnet.ec2-01.id
+#  vpc_id             = aws_vpc.vpc.id
+#}
 
 #resource "aws_instance" "wp-instance" {
-#  ami       = var.instance-ami
+#  ami       = var.instance_ami
 #  subnet_id = aws_subnet.ec2-01.id
 #  vpc_security_group_ids = [
 #    "${aws_security_group.ec2_sg.id}"
@@ -20,16 +20,16 @@ module "wp-ec2" {
 #  root_block_device {
 #    volume_type = "gp3"
 #  }
-#  depends_on = [aws_db_instance.wp-rds]
+#  #depends_on = [aws_db_instance.wp-rds]
 #
 #  provisioner "remote-exec" {
 #    inline = ["echo Wait until SSH is ready"]
 #
 #    connection {
-#      type = "ssh"
-#      user = var.ssh-user
+#      type        = "ssh"
+#      user        = var.ssh-user
 #      private_key = file(local.private_key_path)
-#      host = aws_instance.wp-instance.public_ip
+#      host        = aws_instance.wp-instance.public_ip
 #    }
 #
 #  }
