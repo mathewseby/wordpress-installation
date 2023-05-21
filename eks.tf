@@ -27,11 +27,11 @@
 #}
 
 data "aws_eks_cluster" "default" {
-  name = module.eks.cluster_id
+  name = module.eks.cluster_name
 }
 
 data "aws_eks_cluster_auth" "default" {
-  name = module.eks.cluster_id
+  name = module.eks.cluster_name
 }
 
 provider "kubernetes" {
@@ -42,10 +42,13 @@ provider "kubernetes" {
 
 module "eks" {
   source                         = "terraform-aws-modules/eks/aws"
-  version                        = "~> 18.0"
+  version                        = "~> 19.0"
   cluster_name                   = "wp-eks"
   cluster_version                = "1.25"
   cluster_endpoint_public_access = true
+  create_kms_key = false
+  attach_cluster_encryption_policy = false
+  cluster_encryption_config = {}
 
   cluster_addons = {
     coredns = {
@@ -79,7 +82,15 @@ module "eks" {
 
     manage_aws_auth_configmap = true
 
-    aws_auth_users = [
+    aws_auth_roles = [
+    {
+      rolearn  = "arn:aws:iam::279601183831:role/developer"
+      username = "developer"
+      groups   = ["development"]
+    },
+  ]
+
+   aws_auth_users = [
       {
         userarn  = "arn:aws:iam::279601183831:user/mathew-tf-test"
         username = "mathew-tf-test"
@@ -95,12 +106,12 @@ locals {
 
   kubeconfig = templatefile("${path.module}/templates/kubeconfig.tpl",
     {
-      kubeconfig_name                   = local.kubeconfig_name
+      kubeconfig_name                    = module.eks.cluster_arn
       endpoint                          = module.eks.cluster_endpoint
       cluster_auth_base64               = module.eks.cluster_certificate_authority_data
-      aws_authenticator_api_version     = "client.authentication.k8s.io/v1alpha1"
-      aws_authenticator_command         = "aws"
-      aws_authenticator_command_args    = ["eks", "get-token", "--cluster-name", module.eks.cluster_name]
+      aws_authenticator_api_version     = "client.authentication.k8s.io/v1beta1"
+      aws_authenticator_command         = "aws-iam-authenticator"
+      aws_authenticator_command_args    = ["token", "-i", module.eks.cluster_name, "-r", "arn:aws:iam::279601183831:role/developer"]
       aws_authenticator_additional_args = ["--region", var.region]
       aws_authenticator_env_variables   = []
     }
@@ -112,6 +123,74 @@ output "kube_confg" {
   value = local.kubeconfig
 }
 
+resource "aws_iam_role" "developer" {
+  name                = "developer"
+  assume_role_policy = jsonencode({
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": aws_iam_role.bastion-role.arn,
+                "Service": "ec2.amazonaws.com"
+            },
+            "Action": "sts:AssumeRole"
+        }
+    ]
+})
+}
+
+resource "aws_iam_role" "bastion-role" {
+  name = "bastionrole"
+  assume_role_policy = jsonencode({
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "Service": "ec2.amazonaws.com"
+            },
+            "Action": "sts:AssumeRole"
+        }
+    ]
+})
+
+inline_policy {
+  name = "bastionpolicy"
+  policy = jsonencode({
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+                "sts:GetSessionToken",
+                "sts:DecodeAuthorizationMessage",
+                "sts:GetAccessKeyInfo",
+                "sts:GetCallerIdentity",
+                "sts:GetServiceBearerToken"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "VisualEditor1",
+            "Effect": "Allow",
+            "Action": "sts:*",
+            "Resource": [
+                "arn:aws:iam::279601183831:user/*",
+                "arn:aws:iam::279601183831:role/*"
+            ]
+        }
+    ]
+})
+}
+}
+
+resource "aws_iam_instance_profile" "bastion-profile" {
+  name = "bastion-instance-profile"
+  role = aws_iam_role.bastion-role.name
+
+}
 
 #data "aws_eks_cluster" "sandbox_cluster" {
 #  depends_on = [module.eks]
