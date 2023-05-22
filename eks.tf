@@ -28,9 +28,11 @@ module "eks" {
   source                         = "terraform-aws-modules/eks/aws"
   version                        = "~> 19.0"
   cluster_name                   = "wp-eks"
-  cluster_version                = "1.25"
+  cluster_version                = "1.26"
   cluster_endpoint_public_access = true
-  #create_kms_key                 = false
+  create_kms_key                 = false
+  cluster_encryption_config = {}
+
 
   cluster_addons = {
     coredns = {
@@ -61,20 +63,35 @@ module "eks" {
       capacity_types = "On-Demand"
     }
   }
-  aws_auth_users = [
+
+   manage_aws_auth_configmap = true
+
+  aws_auth_roles = [
     {
-      userarn  = "arn:aws:iam::279601183831:user/mathewseby"
-      username = "mathewseby"
-      groups   = ["system:masters"]
-    },
-    {
-      userarn  = "arn:aws:iam::66666666666:user/user2"
-      username = "user2"
+      rolearn  = aws_iam_role.admin.arn
+      username = "admin"
       groups   = ["system:masters"]
     },
   ]
 
-  aws_auth_accounts = [
-    "279601183831",
-  ]
+
+}
+
+data "aws_eks_cluster" "default" {
+  name = module.eks.cluster_name
+}
+
+data "aws_eks_cluster_auth" "default" {
+  name = module.eks.cluster_name
+}
+
+provider "kubernetes" {
+  host                   = module.eks.cluster_endpoint
+  cluster_ca_certificate = base64decode(data.aws_eks_cluster.default.certificate_authority[0].data)
+  token                  = data.aws_eks_cluster_auth.default.token
+}
+
+resource "local_file" "kubeconfig" {
+  filename = "kubeconfig"
+  content = local.kubeconfig
 }

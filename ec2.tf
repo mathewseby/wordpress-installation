@@ -1,7 +1,7 @@
 resource "aws_instance" "wp-instance" {
   count = var.install_type == "server_with_rds" || var.install_type == "with_docker_rds" || var.install_type == "eks" ? 1 : 0
   ami   = var.instance-ami
-  #iam_instance_profile = aws_iam_instance_profile.eks_ec2_profile.name
+  iam_instance_profile = aws_iam_instance_profile.bastion-profile.name
   subnet_id = aws_subnet.ec2-01.id
   vpc_security_group_ids = [
     "${aws_security_group.ec2_sg.id}"
@@ -31,7 +31,7 @@ resource "null_resource" "eks-rds-nill" {
   count      = var.install_type == "eks" ? 1 : 0
   depends_on = [module.eks]
   provisioner "local-exec" {
-    command = "export ANSIBLE_HOST_KEY_CHECKING=False ; echo install_type: ${var.install_type} >> extra-vars.yml ; ansible-playbook -i ${one(aws_instance.wp-instance[*].public_ip)}, -u ${var.ssh-user} -e @extra_vars.yml playbooks/install-wordpress.yml"
+    command = "export ANSIBLE_HOST_KEY_CHECKING=False ; ansible-playbook -i ${one(aws_instance.wp-instance[*].public_ip)}, -u ${var.ssh-user} -e install_type=eks playbooks/install-wordpress.yml"
   }
 }
 
