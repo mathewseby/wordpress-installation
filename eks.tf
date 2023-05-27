@@ -42,7 +42,7 @@ provider "kubernetes" {
 
 module "eks" {
   source                         = "terraform-aws-modules/eks/aws"
-  version                        = "~> 19.0"
+  version                        = "19.12.0"
   cluster_name                   = "wp-eks"
   cluster_version                = "1.25"
   cluster_endpoint_public_access = true
@@ -107,7 +107,7 @@ locals {
   kubeconfig = templatefile("${path.module}/templates/kubeconfig.tpl",
     {
       kubeconfig_name                    = module.eks.cluster_arn
-      endpoint                          = module.eks.cluster_endpoint
+      endpoint                          = module.eks.cluster_name
       cluster_auth_base64               = module.eks.cluster_certificate_authority_data
       aws_authenticator_api_version     = "client.authentication.k8s.io/v1beta1"
       aws_authenticator_command         = "aws-iam-authenticator"
