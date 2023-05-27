@@ -10,7 +10,7 @@ locals {
 
   kubeconfig = templatefile("${path.module}/templates/kubeconfig.tpl",
     {
-      kubeconfig_name                    = module.eks.cluster_arn
+      kubeconfig_name                   = module.eks.cluster_arn
       endpoint                          = module.eks.cluster_endpoint
       cluster_auth_base64               = module.eks.cluster_certificate_authority_data
       aws_authenticator_api_version     = "client.authentication.k8s.io/v1beta1"

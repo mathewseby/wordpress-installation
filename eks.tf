@@ -28,10 +28,10 @@ module "eks" {
   source                         = "terraform-aws-modules/eks/aws"
   version                        = "~> 19.0"
   cluster_name                   = "wp-eks"
-  cluster_version                = "1.26"
+  cluster_version                = "1.27"
   cluster_endpoint_public_access = true
   create_kms_key                 = false
-  cluster_encryption_config = {}
+  cluster_encryption_config      = {}
 
 
   cluster_addons = {
@@ -64,7 +64,7 @@ module "eks" {
     }
   }
 
-   manage_aws_auth_configmap = true
+  manage_aws_auth_configmap = true
 
   aws_auth_roles = [
     {
@@ -93,5 +93,5 @@ provider "kubernetes" {
 
 resource "local_file" "kubeconfig" {
   filename = "kubeconfig"
-  content = local.kubeconfig
+  content  = local.kubeconfig
 }
