@@ -53,13 +53,11 @@ module "eks" {
 }
 
 data "aws_eks_cluster" "default" {
-  depends_on = [module.eks]
-  name       = module.eks.cluster_name
+  name = "wp-eks"
 }
 
 data "aws_eks_cluster_auth" "default" {
-  depends_on = [module.eks]
-  name = module.eks.cluster_name
+  name = "wp-eks"
 }
 
 provider "kubernetes" {
