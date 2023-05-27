@@ -1,3 +1,17 @@
+data "aws_eks_cluster" "default" {
+  name = module.eks.cluster_name
+}
+
+data "aws_eks_cluster_auth" "default" {
+  name = module.eks.cluster_name
+}
+
+provider "kubernetes" {
+  host                   = module.eks.cluster_endpoint
+  cluster_ca_certificate = base64decode(data.aws_eks_cluster.default.certificate_authority[0].data)
+  token                  = data.aws_eks_cluster_auth.default.token
+}
+
 module "eks" {
   #count                          = var.install_type == "eks" ? 1 : 0
   source                         = "terraform-aws-modules/eks/aws"
@@ -51,22 +65,6 @@ module "eks" {
 
 
 }
-
-data "aws_eks_cluster" "default" {
-  depends_on = [module.eks]
-  name       = module.eks.cluster_name
-}
-
-data "aws_eks_cluster_auth" "default" {
-  name = module.eks.cluster_name
-}
-
-provider "kubernetes" {
-  host                   = module.eks.cluster_endpoint
-  cluster_ca_certificate = base64decode(data.aws_eks_cluster.default.certificate_authority[0].data)
-  token                  = data.aws_eks_cluster_auth.default.token
-}
-
 
 resource "local_file" "kubeconfig" {
   filename = "kubeconfig"
