@@ -53,7 +53,8 @@ module "eks" {
 }
 
 data "aws_eks_cluster" "default" {
-  name = "wp-eks"
+  depends_on = [module.eks]
+  name       = "wp-eks"
 }
 
 data "aws_eks_cluster_auth" "default" {
