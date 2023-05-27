@@ -1,7 +1,7 @@
 module "eks" {
   #count                          = var.install_type == "eks" ? 1 : 0
   source                         = "terraform-aws-modules/eks/aws"
-  version                        = "~> 19.0"
+  version                        = "~> 19.12"
   cluster_name                   = "wp-eks"
   cluster_version                = "1.27"
   cluster_endpoint_public_access = true
