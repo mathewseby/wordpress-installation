@@ -1,9 +1,9 @@
 module "eks" {
   #count                          = var.install_type == "eks" ? 1 : 0
   source                         = "terraform-aws-modules/eks/aws"
-  version                        = "19.12"
+  version                        = "19.12.0"
   cluster_name                   = "wp-eks"
-  cluster_version                = "1.27"
+  cluster_version                = "1.25"
   cluster_endpoint_public_access = true
   create_kms_key                 = false
   cluster_encryption_config      = {}
@@ -52,20 +52,20 @@ module "eks" {
 
 }
 
-//data "aws_eks_cluster" "default" {
-//  depends_on = [module.eks]
-//  name       = "wp-eks"
-//}
-//
-//data "aws_eks_cluster_auth" "default" {
-//  name = "wp-eks"
-//}
+data "aws_eks_cluster" "default" {
+  name = module.eks.cluster_name
+}
 
-//provider "kubernetes" {
-//  host                   = module.eks.cluster_endpoint
-//  cluster_ca_certificate = base64decode(data.aws_eks_cluster.default.certificate_authority[0].data)
-//  token                  = data.aws_eks_cluster_auth.default.token
-//}
+data "aws_eks_cluster_auth" "default" {
+  name = module.eks.cluster_name
+}
+
+provider "kubernetes" {
+  host                   = module.eks.cluster_endpoint
+  cluster_ca_certificate = base64decode(data.aws_eks_cluster.default.certificate_authority[0].data)
+  token                  = data.aws_eks_cluster_auth.default.token
+}
+
 
 resource "local_file" "kubeconfig" {
   filename = "kubeconfig"
