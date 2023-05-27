@@ -52,20 +52,20 @@ module "eks" {
 
 }
 
-data "aws_eks_cluster" "default" {
-  depends_on = [module.eks]
-  name       = "wp-eks"
-}
+//data "aws_eks_cluster" "default" {
+//  depends_on = [module.eks]
+//  name       = "wp-eks"
+//}
+//
+//data "aws_eks_cluster_auth" "default" {
+//  name = "wp-eks"
+//}
 
-data "aws_eks_cluster_auth" "default" {
-  name = "wp-eks"
-}
-
-provider "kubernetes" {
-  host                   = module.eks.cluster_endpoint
-  cluster_ca_certificate = base64decode(data.aws_eks_cluster.default.certificate_authority[0].data)
-  token                  = data.aws_eks_cluster_auth.default.token
-}
+//provider "kubernetes" {
+//  host                   = module.eks.cluster_endpoint
+//  cluster_ca_certificate = base64decode(data.aws_eks_cluster.default.certificate_authority[0].data)
+//  token                  = data.aws_eks_cluster_auth.default.token
+//}
 
 resource "local_file" "kubeconfig" {
   filename = "kubeconfig"
