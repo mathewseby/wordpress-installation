@@ -24,7 +24,7 @@
 #}
 
 module "eks" {
-  count                          = var.install_type == "eks" ? 1 : 0
+  #count                          = var.install_type == "eks" ? 1 : 0
   source                         = "terraform-aws-modules/eks/aws"
   version                        = "~> 19.0"
   cluster_name                   = "wp-eks"
