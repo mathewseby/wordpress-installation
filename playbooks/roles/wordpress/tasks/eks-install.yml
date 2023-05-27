@@ -19,20 +19,6 @@
     force: yes
     state: link
 
-- name: Create kubectl config folder
-  become: no
-  file:
-    path: "/home/{{ ansible_user }}/.kube"
-    state: directory
-    mode: 0755
-
-#- name: Copy the kube_config into kubectl bastion
-#  become: no
-#  copy:
-#    src: "{{ kubectl_local_config_directory }}"
-#    dest: "/home/{{ ansible_user }}/.kube/config"
-#    mode: 0600
-
 - name: Check if kubectl completion exists on admin server
   stat:
     path: /etc/bash_completion.d/kubectl
@@ -120,26 +106,30 @@
     state: present
     executable: pip3
 
-# - name: Create aws auth
-#   become: no
-#   shell: aws configure
-#   environment:
-#     AWS_ACCESS_KEY_ID: AKIAUCGMHPRLT4ND374D
-#     AWS_SECRET_ACCESS_KEY: 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
-#     AWS_DEFAULT_REGION: ap-south-1
-#
-# - name: Create eks login
-#   become: no
-#   shell: aws eks update-kubeconfig --region ap-south-1 --name wp-eks
-#   environment:
-#     AWS_ACCESS_KEY_ID: AKIAUCGMHPRLT4ND374D
-#     AWS_SECRET_ACCESS_KEY: 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
-#     AWS_DEFAULT_REGION: ap-south-1
+- name: Install aws-authenticator
+  get_url:
+    url: https://github.com/kubernetes-sigs/aws-iam-authenticator/releases/download/v0.5.9/aws-iam-authenticator_0.5.9_linux_amd64
+    dest: /usr/local/bin/aws-iam-authenticator
+    mode: '0755'
 
 - name: Install Helm Diff
   kubernetes.core.helm_plugin:
     state: present
     plugin_path: https://github.com/databus23/helm-diff
+
+- name: Create kubectl config folder
+  become: no
+  file:
+    path: "/home/{{ ansible_user }}/.kube"
+    state: directory
+    mode: 0755
+
+- name: Copy the kube_config into kubectl bastion
+  become: no
+  copy:
+    src: "kubeconfig"
+    dest: "/home/{{ ansible_user }}/.kube/config"
+    mode: 0600
 
 - name: Add wordpress charts repo
   become: no
