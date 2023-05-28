@@ -141,7 +141,7 @@
   become: no
   kubernetes.core.helm:
     name: wordpress
-    chart_ref: bitnami/wordpress
+    chart_ref: wordpress
     release_namespace: default
     update_repo_cache: true
     state: present
