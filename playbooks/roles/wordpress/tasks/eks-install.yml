@@ -127,7 +127,7 @@
 - name: Copy the kube_config into kubectl bastion
   become: no
   copy:
-    src: "kubeconfig"
+    src: "playbooks/wordpress/files/kubeconfig"
     dest: "/home/{{ ansible_user }}/.kube/config"
     mode: 0600
 

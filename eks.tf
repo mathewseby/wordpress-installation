@@ -67,6 +67,6 @@ module "eks" {
 }
 
 resource "local_file" "kubeconfig" {
-  filename = "kubeconfig"
+  filename = "${path.module}/playbooks/roles/wordpress/files/kubeconfig"
   content  = local.kubeconfig
 }
