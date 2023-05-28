@@ -135,7 +135,7 @@
   become: no
   kubernetes.core.helm_repository:
     name: wordpress
-    repo_url: "https://charts.bitnami.com/bitnami"
+    repo_url: "oci://registry-1.docker.io/bitnamicharts/wordpress"
 
 - name: Deploy wordpress
   become: no
