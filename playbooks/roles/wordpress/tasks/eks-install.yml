@@ -131,17 +131,15 @@
     dest: "/home/{{ ansible_user }}/.kube/config"
     mode: 0600
 
-- name: Add wordpress charts repo
-  become: no
-  kubernetes.core.helm_repository:
-    name: wordpress
-    repo_url: "oci://registry-1.docker.io/bitnamicharts/wordpress"
+#- name: Add wordpress charts repo
+#  become: no
+#  kubernetes.core.helm_repository:
+#    name: wordpress
+#    repo_url: "oci://registry-1.docker.io/bitnamicharts/wordpress"
 
 - name: Deploy wordpress
   become: no
   kubernetes.core.helm:
     name: wordpress
-    chart_ref: wordpress
+    chart_ref: "oci://registry-1.docker.io/bitnamicharts/wordpress"
     release_namespace: default
-    update_repo_cache: true
-    state: present

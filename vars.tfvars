@@ -1,6 +1,6 @@
-instance_key_name   = "wp-test.pem"
+instance_key_name   = "wp-testkey"
 ssh-user            = "ec2-user"
-private_key_path    = "/home/mathew/Downloads/wp-test-instance.pem"
+private_key_path    = "/home/mathew/Downloads/wp-testkey.pem"
 instance-type       = "t3.micro"
 instance-ami        = "ami-0a23ccb2cdd9286bb"
 region              = "ap-south-1"

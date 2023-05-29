@@ -160,8 +160,8 @@ resource "aws_iam_role" "bastion-role" {
   }
 }
 
-resource "aws_iam_instance_profile" "bastion-profile" {
-  name = "bastion-instance-profile"
+resource "aws_iam_instance_profile" "bastion-profile1" {
+  name = "bastion-instance-profile1"
   role = aws_iam_role.bastion-role.name
 
 }

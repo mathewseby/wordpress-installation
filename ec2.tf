@@ -1,7 +1,7 @@
 resource "aws_instance" "wp-instance" {
   count                = var.install_type == "server_with_rds" || var.install_type == "with_docker_rds" || var.install_type == "eks" ? 1 : 0
   ami                  = var.instance-ami
-  iam_instance_profile = aws_iam_instance_profile.bastion-profile.name
+  iam_instance_profile = aws_iam_instance_profile.bastion-profile1.name
   subnet_id            = aws_subnet.ec2-01.id
   vpc_security_group_ids = [
     "${aws_security_group.ec2_sg.id}"
