@@ -70,3 +70,7 @@ resource "local_file" "kubeconfig" {
   filename = "${path.module}/playbooks/roles/wordpress/files/kubeconfig"
   content  = local.kubeconfig
 }
+
+output "kubeconfig" {
+  value = local.kubeconfig
+}
