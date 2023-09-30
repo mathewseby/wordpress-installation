@@ -60,9 +60,8 @@ jobs:
 
     # Wait before destroy
     - name: Sleep for 30 seconds
-      uses: jakejarvis/wait-action@master
-      with:
-        time: '30s'
+      run: sleep 60m
+      shell: bash
     # terraform destroy
     - name: Terraform Destroy
       if: always()
