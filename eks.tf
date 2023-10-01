@@ -22,6 +22,9 @@ module "eks" {
     aws-ebs-csi-driver = {
       most_recent = true
     }
+    aws-efs-csi-driver = {
+      most_recent = true
+    }
 
   }
 
@@ -34,7 +37,7 @@ module "eks" {
       min_size       = 1
       max_size       = 1
       desired_size   = 1
-      instance_types = ["t3a.medium"]
+      instance_types = ["t3a.large"]
       capacity_types = "On-Demand"
     }
   }
@@ -63,8 +66,4 @@ provider "kubernetes" {
 resource "local_file" "kubeconfig" {
   filename = "${path.module}/playbooks/roles/wordpress/files/kubeconfig"
   content  = local.kubeconfig
-}
-
-output "kubeconfig" {
-  value = local.kubeconfig
 }

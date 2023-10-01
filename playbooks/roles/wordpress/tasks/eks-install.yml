@@ -131,11 +131,10 @@
     dest: "/home/{{ ansible_user }}/.kube/config"
     mode: 0600
 
-#- name: Add wordpress charts repo
-#  become: no
-#  kubernetes.core.helm_repository:
-#    name: wordpress
-#    repo_url: "oci://registry-1.docker.io/bitnamicharts/wordpress"
+- name: Copy values file to remote host
+  template:
+    src: wp-values.yml.j2
+    dest: /tmp/values.yml
 
 - name: Deploy wordpress
   become: no
@@ -143,3 +142,5 @@
     name: wordpress
     chart_ref: "oci://registry-1.docker.io/bitnamicharts/wordpress"
     release_namespace: default
+    values_files:
+      - /tmp/values.yml
